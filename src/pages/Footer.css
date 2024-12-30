@@ -1,0 +1,99 @@
+.footer {
+    background-color: #3A9FA6; 
+    color: white;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    flex-wrap: wrap; 
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-column {
+    flex: 1;
+    text-align: left;
+    margin-right: 2rem; 
+}
+
+.footer-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-subheading {
+    font-size: 1rem;
+    margin-top: 10px;
+    max-width: 70%;
+    margin-bottom: 0.40rem;
+    text-align: justify;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.8rem; 
+}
+
+.social-icon img {
+    width: 26px; 
+    height: auto;
+    filter: brightness(0) invert(1); 
+}
+
+.footer-column:last-child {
+    margin-right: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-column {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .social-icons {
+        margin-top: 1rem;
+    }
+}
+
+
+.footer-career-link {
+    color: #fff;
+    /* text-decoration: none; */
+    /* margin-top: 10px; */
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-career-link:hover {
+    color: #ffd700; /* Change the color on hover */
+}
+
+
+.footer-logo {
+    display: flex;
+    /* justify-content: center; 
+    align-items: center;    */
+    height: 70px;          
+    /* padding: 10px; */
+  }
+  
+  .footer-logo img {
+    max-width: 100%;       
+    max-height: 100%;      
+    width: auto;
+    height: auto;
+    object-fit: contain;   
+  }

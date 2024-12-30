@@ -1,0 +1,238 @@
+/* 
+.Employee-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.Employee-section {
+    margin-bottom: 30px;
+}
+
+.Employee-section:first-child h3 {
+    text-align: center;
+    
+    margin-bottom: 15px;
+}
+.Employee-container h2{
+    color: gray;
+}
+.Employee-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.Employee-section p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    text-align: justify;
+    font-size: 14px;
+}
+
+.Employee-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Employee-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.Employee-label {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+}
+
+.Employee-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 9px;
+    margin-top: 5px;
+    transition: border-color 0.3s;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.Employee-ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    text-align: left; 
+    font-size: 14px;
+}
+
+.Employee-li {
+    list-style-type: disc;
+    margin-bottom: 5px;
+}
+
+.Employee-inline-input {
+    display: inline-block;
+    width: auto;
+    max-width: 160px; 
+    margin: 0 10px;
+    
+}
+
+.Employee-full-width {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: justify;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  
+.Employee-label {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+}
+.Employee-input {
+    width: 100%;
+    max-width: 90%; 
+    padding: 9px;
+    border: none;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+    transition: border-color 0.3s;
+    border-radius: 4px;
+}
+} */
+
+
+.Employee-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.Employee-section {
+    margin-bottom: 30px;
+}
+
+.Employee-section:first-child h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.Employee-container h2 {
+    color: gray;
+}
+
+.Employee-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.Employee-section p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    text-align: justify;
+    font-size: 14px;
+}
+
+.Employee-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Employee-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center; /* Ensures label and input are aligned */
+}
+
+.Employee-label {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+}
+
+.Employee-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 9px;
+    margin-top: 5px;
+    transition: border-color 0.3s;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures consistent sizing */
+}
+
+.Employee-ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    text-align: left; 
+    font-size: 14px;
+}
+
+.Employee-li {
+    list-style-type: disc;
+    margin-bottom: 5px;
+}
+
+.Employee-inline-input {
+    display: inline-block;
+    width: auto;
+    max-width: 160px; 
+    margin: 0 10px;
+}
+
+.Employee-full-width {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: justify;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .Employee-label {
+        margin-top: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .Employee-input {
+        width: 100%;
+        max-width: 90%; 
+        padding: 9px;
+        border: none;
+        border: 1px solid #ccc;
+        margin-top: 8px;
+        transition: border-color 0.3s;
+        border-radius: 4px;
+    }
+}

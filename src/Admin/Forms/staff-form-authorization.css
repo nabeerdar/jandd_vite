@@ -1,0 +1,114 @@
+@font-face{
+    font-family: myFont;
+    src: url(../../assets/Fonts/WhisperingSignature/WhisperingSignature.ttf)
+}
+
+.signature{
+    font-family: myFont;
+}
+
+
+.authorization-second-form {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.authorization-second-header {
+    text-align: center;
+}
+
+.authorization-second-company-info {
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.authorization-second-heading {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.authorization-second-subheading {
+    font-size: 14px;
+    color: #000;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.authorization-second-details {
+    margin-top: 20px;
+}
+
+.authorization-second-row {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.authorization-second-row-horizontal {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.authorization-second-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.authorization-second-row label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.authorization-second-row input,
+.authorization-second-row textarea {
+    padding: 8px;
+    background-color: #fff; /* White background for input fields */
+    border: 1px solid #ccc; /* Visible border for inputs */
+    border-radius: 4px; /* Slight border radius for better aesthetics */
+    outline: none;
+    font-size: 14px;
+    width: 90%;
+    box-shadow: none; /* Remove any default input shadow */
+}
+
+/* .authorization-second-row input:focus,
+.authorization-second-row textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+} */
+
+.authorization-second-row-horizontal input {
+    flex: 1;
+}
+
+.authorization-second-row textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.authorization-second-textarea {
+    width: 90%;
+    background-color: #fff;
+    height: 80px;
+    border: 1px solid #ccc; /* Add border for textarea as well */
+    border-radius: 4px; /* Slight border radius */
+    outline: none;
+}
+
+.authorization-second-row-horizontal {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.authorization-second-row-horizontal .radio-group {
+    display: flex;
+    gap: 20px;
+}

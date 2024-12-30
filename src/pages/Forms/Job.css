@@ -1,0 +1,141 @@
+@font-face{
+    font-family: myFont;
+    src: url(../../assets/Fonts/WhisperingSignature/WhisperingSignature.ttf)
+}
+
+.signature{
+    font-family: myFont;
+}
+
+
+
+.Job-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.Job-container  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.subheading_h2{
+    color: gray;
+}
+.subheading_h22{
+   font-size: 22px;
+}
+.Job-container  h3 {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.Job-container  p {
+    line-height: 1.6;
+  text-align: justify;
+}
+
+.Job-container ol {
+    padding-left: 50px;
+    text-align: justify;
+}
+
+.Job-container  li {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.Job-agreement {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Job-signature-line input {
+    width: 90%;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.Job-input-date {
+    width: 90%;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.job-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center; /* Ensures label and input are aligned */
+}
+
+.job-label {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.job-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 9px;
+    margin-top: 5px;
+    transition: border-color 0.3s;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures consistent sizing */
+}
+
+
+
+
+@media (max-width: 768px) {
+    .job-label {
+        margin-top: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .job-input {
+        width: 100%;
+        max-width: 90%; 
+        padding: 9px;
+        border: none;
+        border: 1px solid #ccc;
+        margin-top: 8px;
+        transition: border-color 0.3s;
+        border-radius: 4px;
+    }
+}

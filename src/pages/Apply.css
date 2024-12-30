@@ -1,0 +1,528 @@
+.apply-form {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+  max-width: 500px;
+  width: 100%;
+}
+.Apply-bg{
+  background-color:#3A9FA6;
+ 
+}
+.apply-containers {
+  
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+}
+
+.apply-flex {
+  display: flex;
+}
+
+.apply-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.apply-image {
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+.apply-form-container {
+  overflow-y: scroll;
+  max-height: 44vh;
+  flex: 1;
+  padding: 40px;
+  background-color: #f7f7f7;
+  position: relative;
+  z-index: 1;
+}
+
+/* Customize the scrollbar */
+.apply-form-container::-webkit-scrollbar {
+  width: 6px; /* Adjust the width to make it thin */
+}
+
+.apply-form-container::-webkit-scrollbar-track {
+  background: #e0e0e0; /* Color of the track */
+  border-radius: 10px;
+}
+
+.apply-form-container::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3; /* Color of the scroll thumb */
+  border-radius: 10px;
+}
+
+.apply-form-container::-webkit-scrollbar-thumb:hover {
+  background-color: #8c8c8c; /* Darker on hover */
+}
+
+.apply-tab-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.apply-tab {
+  flex: 1;
+  height: 4px;
+  background-color: #ddd;
+  margin: 0 5px;
+}
+
+.apply-tab.active {
+  background-color: green;
+}
+
+.apply-form-group {
+  margin-bottom: 20px;
+}
+
+.reference-title {
+  width: 100%;
+  /* background-color: #3A9FA6; */
+  display: flex;
+  
+  color: gray; /* Sets text color to gray */
+  font-size: 0.9rem; /* Adjust font size if needed */
+  font-weight: 500; /* Optional: adjust to match existing style */
+  /* margin-top: 2px;  */
+}
+
+@media (max-width: 600px) {
+  .reference-title {
+    flex-direction: column;
+  }
+}
+
+.apply-input-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.apply-input-box {
+  flex: 1;
+  margin-right: 10px;
+  margin-top: 10px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.apply-input-box:last-child {
+  margin-right: 0;
+}
+
+.apply-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+input[type="file"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="file"]:focus,
+select:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.apply-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.apply-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 100px;
+  text-align: center;
+}
+
+.apply-button:hover {
+  background-color: darkgreen;
+}
+
+.apply-prev-button {
+  margin-right: 10px;
+}
+
+.apply-next-button {
+  margin-left: 10px;
+}
+
+.apply-next-button-container,
+.apply-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.apply-radio-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.apply-radio-group label {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.apply-radio-option {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.apply-radio-option input[type="radio"] {
+  margin-right: 8px; 
+}
+
+.apply-radio-group label {
+  font-size: 16px;
+}
+#ageYes{
+  margin-top: -3px;
+}
+#ageNo{
+  margin-top: -3px;
+}
+
+
+
+
+
+.apply-checkbox {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.apply-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.apply-form-group label {
+  font-weight: normal;
+}
+
+.apply-button-container {
+  display: flex;
+  justify-content: center; 
+  margin-top: 20px;
+}
+
+.apply-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 200px; 
+  text-align: center;
+}
+
+.apply-button:hover {
+  background-color: darkgreen;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .apply-containers {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 20px auto;
+    box-shadow:none; 
+
+  }
+
+  .apply-flex {
+    flex-direction: column;
+  }
+
+  /* .apply-image-container {
+    display: none; 
+  } */
+
+  .apply-image-container img {
+    max-width: 90%;  
+    height: auto;    
+    display: block;  
+    margin: 0 auto;   
+  }
+  
+  .apply-form-container {
+    padding: 20px;
+  }
+
+  .apply-input-row {
+    flex-direction: column;
+  }
+
+  .apply-input-box {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .apply-button-container {
+    justify-content: center;
+  }
+
+  .apply-button {
+    width: 100%; /* Full width for buttons on smaller screens */
+  }
+  .apply-form {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    max-width: 500px; /* Restricts the width of the form */
+    width: 90%;
+  }
+}
+
+/* Media Query for Mobile Devices (screen width less than or equal to 480px) */
+@media (max-width: 480px) {
+  .apply-containers {
+    box-shadow:none; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: none; /* Remove shadow for smaller devices */
+    border-radius: 0;
+  }
+
+  .apply-form-container {
+    padding: 15px;
+  }
+
+  .apply-tab-indicator {
+    flex-direction: column; /* Stack the tab indicators */
+  }
+
+  .apply-tab {
+    margin-bottom: 10px;
+    height: 3px;
+  }
+
+  .apply-input-box {
+    margin-bottom: 10px;
+  }
+
+  .apply-checkbox input[type="checkbox"] {
+    margin-top: 0;
+  }
+
+  .apply-button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .apply-button {
+    width: 100%; /* Full width buttons */
+    margin-bottom: 10px;
+  }
+
+  .apply-prev-button,
+  .apply-next-button {
+    margin: 10px;
+   
+  }
+  .apply-image-container img {
+    max-width: 90%;  
+    height: auto;    
+    display: block;  
+    margin: 0 auto;   
+  }
+  .apply-form {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    max-width: 500px; /* Restricts the width of the form */
+    width: 90%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.apply-paragraph {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+
+.apply-paragraph h2 {
+  
+  font-weight: bold;
+  color: #0c3050;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.apply-paragraph p {
+
+  color: #34495e; 
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.your-component {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  /* background-color: #f9f9f9; */
+}
+
+.caregiver-info h2 {
+  color: #0c3050;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.caregiver-info p {
+  color: #34495e; 
+  font-size: 16px;
+  line-height: 1.6; 
+  text-align: justify;
+  margin-right: 60px;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.footer-info {
+  text-align: left;
+  color: #34495e; 
+  padding: 10px 0;
+  font-size: 18px;
+  border-radius: 5px;
+  justify-content: left;
+  margin-top: 20px;
+}
+
+.footer-info p {
+  margin: 0;
+}
+
+.apply {
+ 
+}
+
+.footer-info p {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.footer-info i,
+.footer-info svg {
+  margin-right: 8px;
+  color: #ffffff;
+  
+  background-color: #0c3050;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+
+.apply-input-box.indented-options {
+  margin-left: 20px; /* Adjust indentation as needed */
+  padding-top: 8px; /* Optional: add some space above the options */
+}
+
+.apply-input-box.indented-options label {
+  display: block; /* Ensures each checkbox is on a new line */
+  margin-bottom: 5px; /* Optional: adds spacing between options */
+}
+

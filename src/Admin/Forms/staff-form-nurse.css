@@ -1,0 +1,96 @@
+@font-face{
+    font-family: myFont;
+    src: url(../../assets/Fonts/WhisperingSignature/WhisperingSignature.ttf)
+}
+
+.signature{
+    font-family: myFont;
+}
+
+
+.Nurse-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.Nurse-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.subheading_h2 {
+    color: gray;
+}
+
+.subheading_h22 {
+    font-size: 22px;
+}
+
+.Nurse-container h3 {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.Nurse-container p {
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.Nurse-container ol {
+    padding-left: 50px;
+    text-align: justify;
+}
+
+.Nurse-container li {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.Nurse-agreement {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nurse-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nurse-label {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.nurse-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 9px;
+    margin-top: 5px;
+    transition: border-color 0.3s;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .nurse-label {
+        font-size: 12px;
+    }
+
+    .nurse-input {
+        max-width: 90%;
+    }
+}

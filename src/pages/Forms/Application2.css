@@ -1,0 +1,632 @@
+@font-face{
+  font-family: myFont;
+  src: url(../../assets/Fonts/WhisperingSignature/WhisperingSignature.ttf)
+}
+
+.signature{
+  font-family: myFont;
+}
+
+
+ .Application2-application-form {
+  width: 60%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Application2-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.Application2-company-info {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: bold;
+
+}
+
+.Application2-subheading {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.Application2-equal-opportunity {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.Application2-form {
+  margin-top: 20px;
+}
+
+.Application2-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.Application2-input-group {
+  width: 48%;
+}
+
+.Application2-full-width {
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+.Application2-small-inputs .Application22-input-group input {
+  font-size: 12px;
+  padding: 12px;
+  width: 80%;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.Application2-checkbox-group {
+  display: flex;
+  gap: 10px;
+}
+
+.Application2-checkbox-row {
+  flex-wrap: nowrap;
+}
+
+.Application2-gray-bg {
+  background-color: #efeeee; 
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.Application2-buttons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.Application2-back-button,
+.Application2-next-button,
+.Application2-submit-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4400ff; 
+  color: white;
+
+}
+
+.Application2-back-button,
+.Application2-next-button {
+  margin-right: 10px; 
+}
+
+.Application2-submit-button {
+
+  display: block; 
+
+
+}
+
+.Application2-table-heading {
+  color: gray;
+  margin-top: 20px;
+}
+
+.Application2-education-table, .Application2-employers-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.Application2-education-table th, .Application2-education-table td,
+.Application2-employers-table th, .Application2-employers-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.Application2-education-table th, .Application2-employers-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.Application2-education-table td,
+ .Application2-employers-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+
+}
+
+
+.table-textarea {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  resize: vertical; 
+}
+
+.Application2-education-table td,
+.Application2-employers-table td {
+  padding: 0;
+}
+
+.Application2-education-table textarea,
+.Application2-employers-table textarea {
+  border: none; 
+  background-color: transparent; 
+  padding: 8px; 
+  text-align: left; 
+  box-sizing: border-box; 
+  resize: none;
+  outline: none; 
+}
+
+
+.Application2-authorization {
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 17px;
+
+  color: #000000;
+
+}
+.Application2-authorization p {
+
+  text-align: justify;
+
+}
+.Application2-authorization h3 {
+
+color: rgb(208, 6, 6);
+
+}
+
+
+.Application2-signature-section {
+  margin-top: 20px;
+  padding: 15px;
+
+}
+
+.Application2-signature-heading {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.Application2-signature-text {
+  font-size: 1em;
+  color: rgb(208, 6, 6);
+  
+}
+.Application2-signature-text p {
+  font-size: 17px;
+  text-align: justify;
+  color: #000;
+  
+}
+
+
+
+.Application2-education-table input,
+.Application2-employers-table input {
+ 
+  color: transparent;
+  background-color: transparent; 
+  border: none;
+}
+
+.Application2-input-group input {
+
+  outline: none;
+}
+
+.sig-form-section {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sig-input-field, .sig-date-picker {
+  border: none;
+  border-bottom: 2px solid #333;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  padding: 6px;
+  flex: 1;
+}
+
+.sig-input-field {
+  width: 100px;
+}
+
+.sig-date-picker {
+  width: 150px;
+}
+
+input[type="text"].sig-input-field, 
+input[type="date"].sig-date-picker, 
+textarea.sig-input-field {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 150px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"].sig-input-field:focus, 
+input[type="date"].sig-date-picker:focus {
+  border-color: #007bff;
+}
+
+
+
+
+
+
+
+
+
+/* Form responsiveness */
+@media (max-width: 768px) {
+  .Application2-application-form {
+    width: 90%; /* Reduce the width on smaller screens */
+    padding: 20px;
+  }
+
+  .Application2-header {
+    font-size: 18px; /* Adjust header font size */
+  }
+
+  .Application2-subheading {
+    font-size: 16px; /* Adjust subheading font size */
+  }
+
+  .Application2-row {
+    flex-direction: column; /* Stack form fields vertically */
+    margin-bottom: 15px;
+  }
+
+  .Application2-input-group {
+    width: 100%; /* Make input fields full-width */
+  }
+
+  .Application2-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+  }
+
+  .Application2-back-button,
+  .Application2-next-button,
+  .Application2-submit-button {
+    width: 100%; /* Full-width buttons */
+    margin-bottom: 10px;
+  }
+
+  .sig-form-section {
+    flex-direction: column; /* Stack signature fields vertically */
+    gap: 10px;
+  }
+
+  .sig-input-field,
+  .sig-date-picker {
+    width: 100%; /* Make signature inputs full-width */
+  }
+}
+
+@media (max-width: 480px) {
+  .Application2-application-form {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  textarea {
+    font-size: 12px; /* Reduce input font size for small screens */
+  }
+
+  .Application2-header {
+    font-size: 16px; /* Further reduce header size */
+  }
+
+  .Application2-subheading {
+    font-size: 14px;
+  }
+
+  .Application2-buttons {
+    justify-content: center; /* Center buttons */
+  }
+
+  .Application2-back-button,
+  .Application2-next-button {
+    padding: 8px 15px; /* Adjust button padding */
+  }
+
+  .Application2-signature-section {
+    font-size: 14px;
+  }
+
+  .sig-form-section {
+    gap: 8px; /* Further reduce gap for signature fields */
+  }
+
+  .Application2-authorization p {
+    font-size: 14px; /* Adjust text size */
+  }
+
+  .Application2-authorization h3 {
+    font-size: 18px; /* Adjust heading size */
+  }
+}
+
+
+
+/* Form responsiveness */
+@media (max-width: 768px) {
+  .Application2-application-form {
+    width: 90%; /* Reduce the width on smaller screens */
+    padding: 20px;
+  }
+
+  .Application2-header {
+    font-size: 18px; /* Adjust header font size */
+  }
+
+  .Application2-subheading {
+    font-size: 16px; /* Adjust subheading font size */
+  }
+
+  .Application2-row {
+    flex-direction: column; /* Stack form fields vertically */
+    margin-bottom: 15px;
+  }
+
+  .Application2-input-group {
+    width: 90%; /* Make input fields full-width */
+  }
+
+  .Application2-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+  }
+
+  .Application2-back-button,
+  .Application2-next-button,
+  .Application2-submit-button {
+    width: 100%; /* Full-width buttons */
+    margin-bottom: 10px;
+  }
+
+  .sig-form-section {
+    flex-direction: column; /* Stack signature fields vertically */
+    gap: 10px;
+  }
+
+  .sig-input-field,
+  .sig-date-picker {
+    width: 100%; /* Make signature inputs full-width */
+  }
+}
+
+@media (max-width: 480px) {
+  .Application2-application-form {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  textarea {
+    font-size: 12px; /* Reduce input font size for small screens */
+  }
+
+  .Application2-header {
+    font-size: 16px; /* Further reduce header size */
+  }
+
+  .Application2-subheading {
+    font-size: 14px;
+  }
+
+  .Application2-buttons {
+    justify-content: center; /* Center buttons */
+  }
+
+  .Application2-back-button,
+  .Application2-next-button {
+    padding: 8px 15px; /* Adjust button padding */
+  }
+
+  .Application2-signature-section {
+    font-size: 14px;
+  }
+
+  .sig-form-section {
+    gap: 8px; /* Further reduce gap for signature fields */
+  }
+
+  .Application2-authorization p {
+    font-size: 14px; /* Adjust text size */
+  }
+
+  .Application2-authorization h3 {
+    font-size: 18px; /* Adjust heading size */
+  }
+}
+/* 
+
+.sig-form-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sig-form-label {
+  width: 48%; 
+  display: flex;
+  flex-direction: column;
+}
+
+.sig-input-field, 
+.sig-date-picker {
+  width: 100%; 
+}
+
+
+@media (max-width: 768px) {
+  .sig-form-section {
+    flex-direction: column; 
+  }
+
+  .sig-form-label {
+    width: 100%;
+  }
+} */
+
+
+.terms-section {
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.terms-checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+.terms-checkbox {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Application2-tab-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.Application2-tab {
+  background-color: #4400FF;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 10px;
+  flex: 1;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.Application2-tab input[type="radio"] {
+  display: none;
+}
+
+.Application2-tab.active {
+  background-color: #290391;
+}
+
+.Application2-tab:hover {
+  background-color: #4400FF;
+}
+
+.Application2-tab::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  /* background: url('path-to-your-icon.png') no-repeat center; */
+ 
+  background-size: cover;
+  position: absolute;
+  top: -20px;
+  left: calc(50% - 20px);
+}
+
+.Application2-tab:first-child {
+  border-top-left-radius: 10px;
+}
+
+.Application2-tab:last-child {
+  border-top-right-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .Application2-tab-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

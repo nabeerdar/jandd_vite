@@ -1,0 +1,171 @@
+   .medical-info-section {
+    padding: 20px;
+    position: relative;
+
+  }
+  
+  .heading {
+    text-align: left;
+    font-size: 35px;
+    margin-bottom:-40px;
+    color: #0c3050;
+  }
+  
+  .lower-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-items: flex-start;
+    background-color: #3A9FA6;
+    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 8px;
+    margin-top: 6rem;
+    position: relative; /* To allow image overlap */
+  }
+  
+  .image-container {
+    position: absolute;
+    top: -120px; /* Adjust this to control overlap */
+    right: 40px; /* Align the image to the right */
+    width: 290px; /* Increased width */
+    height: 330px; /* Increased height */
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .info-columns {
+    display: flex;
+    width: 100%; 
+    font-size: large;
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+  }
+
+  .info-column-changed{
+    font-size: large;
+    text-align: justify;
+    width: 70%;
+    color: white;
+  }
+  
+  .info-column {
+    text-align: left;
+    color: white;
+    flex: 1;
+    padding: 10px;
+    margin-right: 3rem;
+    max-width: 350px;
+  }
+  
+  .info-column h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .info-column p {
+    font-size: 16px;
+    text-align: justify;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+
+    .info-column-changed{
+      width: 100%;
+    }
+
+    .lower-container {
+      flex-direction: column; 
+      align-items: center; 
+      padding-top: 19px; 
+      text-align: left;
+    }
+  
+    .image-container {
+      position: relative;
+      top: 0;
+      right: 0;
+      margin-bottom: 20px;
+      width: 260px; 
+      height: 280px;
+    }
+    
+    .info-columns {
+        max-width: 100%;
+        margin-right: 0;
+        display: flex;  
+        flex-direction: column;
+        margin-bottom: 20px; 
+      }
+    
+    .info-column {
+      max-width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px; 
+    }
+  
+    .heading {
+      font-size: 28px;
+      text-align: left;
+    }
+  
+    .info-column h2 {
+      font-size: 24px;
+      text-align: left; 
+    }
+  
+    .info-column p {
+      font-size: 14px;
+      text-align: justify;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .lower-container {
+        flex-direction: column; 
+        align-items: center; 
+        padding-top: 19px; 
+        text-align: left;
+      }
+    
+    .heading {
+      font-size: 24px;
+      text-align: left;
+    }
+    .info-columns {
+        max-width: 90%;
+        margin-right: 0;
+        display: flex;
+        text-align: left;
+        flex-direction: column;
+        margin-bottom: 20px; 
+      }
+    
+  
+    .info-column h2 {
+      font-size: 20px;
+      text-align: left; 
+    }
+  
+    .info-column p {
+      font-size: 14px;
+    }
+  
+    .image-container {
+      width: 200px; 
+      height: 230px;
+    }
+  }
+  
+  @media (max-width: 1180px) and (min-width: 768px) {
+    .image-container {
+       display: none;
+      }
+  }

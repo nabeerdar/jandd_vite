@@ -1,0 +1,144 @@
+@font-face{
+    font-family: myFont;
+    src: url(../../assets/Fonts/WhisperingSignature/WhisperingSignature.ttf)
+  }
+  
+  .signature{
+    font-family: myFont;
+  }  
+
+.Verification-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.Verification-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Verification-subheading_h2 {
+    color: gray;
+}
+
+.Verification-subheading_h22 {
+    font-size: 22px;
+}
+
+.Verification-container h3 {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.Verification-container p {
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.Verification-container ol {
+    padding-left: 50px;
+    text-align: justify;
+}
+
+.Verification-container li {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.Verification-agreement {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Verification-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Verification-label {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.Verification-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 9px;
+    margin-top: 5px;
+    transition: border-color 0.3s;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.Verification-inputs {
+    width: 100%;
+    max-width: 760px;
+    padding: 9px;
+    margin-top: 5px;
+    transition: border-color 0.3s;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .Verification-label {
+        font-size: 12px;
+    }
+
+    .Verification-input {
+        max-width: 90%;
+    }
+    .Verification-inputs {
+        max-width: 95%;
+    }
+}
+
+
+
+
+
+
+
+.Verification-label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.Verification-radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.Verification-input-radio {
+    margin-right: 5px;
+}
+
+.Verification-radio-label {
+    margin-right: 15px;
+}
+
+@media (max-width: 768px) {
+    .Verification-radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

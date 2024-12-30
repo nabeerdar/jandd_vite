@@ -1,0 +1,225 @@
+
+
+.HandBook-container {
+padding: 20px;
+max-width: 800px;
+margin: 20px auto;
+border: 1px solid #ddd;
+border-radius: 8px;
+background-color: #F2F4FA;
+text-align: center;
+}
+.HandBook-container h1{
+    color: gray; 
+}
+.HandBook-container h4{
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+.HandBook-container p{
+    text-align: justify;
+    font-size: 15px;
+}
+
+
+.HandBook-values ul{
+    text-align: left;
+    font-size: 15px;
+}
+
+
+  .HandBook-container h5{
+text-align: left;
+text-decoration: underline;
+text-decoration-color: black;
+font-size: 16px;
+  }
+
+  .handbook-paragraph-underline{
+    text-decoration: underline;
+text-decoration-color: black;
+font-weight: bold;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+/* 
+  .HandBook-acknowledgment {
+  padding: 20px;
+}
+
+.HandBook-acknowledgment input, .HandBook-acknowledgment label {
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.HandBook-acknowledgment-signature {
+  margin-top: 20px;
+}
+
+.signature-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.signature-row label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.signature-row input {
+  margin-left: 10px;
+}
+
+.signature-row label:first-of-type {
+  width: 100px;
+}
+
+.signature-row label + input {
+  width: 100px; 
+}
+
+.signature-row input[type="date"] {
+  width: auto;
+  margin-left: 20px; 
+}
+
+.Hand-bold {
+    text-align: left;
+  font-weight: bold;
+
+}
+
+.employee-input {
+  text-align: left;
+} 
+
+
+
+
+
+
+
+   */
+
+
+
+   .HandBook-acknowledgment {
+    padding: 20px;
+  }
+  
+  .HandBook-acknowledgment input, 
+  .HandBook-acknowledgment label {
+    padding: 8px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  .HandBook-acknowledgment-signature {
+    margin-top: 20px;
+  }
+  
+  .signature-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #000; /* Single border-bottom line for the row */
+    padding-bottom: 8px; /* Space below the border line */
+  }
+  
+  .signature-row label {
+    font-weight: bold;
+    text-align: left;
+    width: 200px; /* Adjusted width for labels */
+  }
+  
+  .signature-row .employee-input {
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .signature-row .date-label, 
+  .signature-row .date-input {
+    margin-left: auto;
+  }
+  
+  .signature-row .date-label {
+    margin-right: 10px; /* Space between label and date input */
+  }
+  
+  .signature-row input[type="date"] {
+    width: 150px; /* Width for date inputs */
+  }
+  
+  .Hand-bold {
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .employee-input {
+    text-align: left;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .signature-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .signature-row label {
+      width: 100%; /* Make labels take full width on smaller screens */
+      margin-bottom: 5px; /* Add some space below labels */
+    }
+  
+    .signature-row .employee-input,
+    .signature-row .date-input {
+      width: 100%; /* Make inputs take full width on smaller screens */
+      margin-left: 0;
+    }
+  
+    .signature-row .date-label {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 10px; /* Add some space above the date input */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .signature-row {
+      padding: 10px; /* Add padding to rows on very small screens */
+    }
+  
+    .signature-row input,
+    .signature-row label {
+      font-size: 12px; /* Smaller font size on very small screens */
+    }
+  
+    .signature-row input[type="date"] {
+      width: 100%; /* Make date input take full width on very small screens */
+    }
+  }
+  
