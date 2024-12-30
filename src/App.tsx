@@ -40,7 +40,7 @@ import StaffFormVerification from './Admin/Forms/StaffFormVerification.jsx';
 import StaffFormJob from './Admin/Forms/StaffFormJob.jsx';
 import StaffFormNurse from './Admin/Forms/StaffFormNurse.jsx';
 import StaffFormRegistered from './Admin/Forms/StaffFormRegistered.jsx';
-import StaffFormHandbook from './Admin/Forms/StaffFormHandbook.jsx';
+import StaffFormHandbook from './Admin/Forms/StaffFormHandBook.jsx';
 
 
 import {AuthProvider} from './contexts/AuthContext';
