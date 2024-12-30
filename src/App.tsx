@@ -25,7 +25,7 @@ import PatientApplication from './pages/ApplyPatients.jsx';
 
 import SignUp from './pages/SigninPage/signup.jsx';
 import AdminLogin from './pages/SigninPage/AdminLogin.jsx';
-import UserLogin from './pages/SigninPage/Userlogin.jsx';
+import UserLogin from './pages/SigninPage/UserLogin.jsx';
 
 import AdminDashboard from './Admin/Dashboard';
 import DashboardApplicants from './Admin/DashboardApplicants';
