@@ -1,5 +1,5 @@
 import React from 'react';
-import './staff-form-verification.css';  // Assuming your CSS is in a separate file named Verification.css
+import './staff-form-Verification.css';  // Assuming your CSS is in a separate file named Verification.css
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
