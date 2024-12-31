@@ -11,6 +11,9 @@
     color: #0c3050;
     margin-bottom: 90px;
   }
+  .okok{
+    color: "blue"
+  }
   
   .patient-box-container {
     display: flex;
