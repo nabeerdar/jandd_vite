@@ -15,9 +15,9 @@ const Footer = () => {
                     <p className="footer-subheading">
                         When you join J&D Homecare agency, you’re joining a team dedicated to your continuous support while emigrating to and living in the US.
                     </p>
-                    <a href="/jandd_vite/admin-login">
+                    <Link to="/admin-login">
                         Admin
-                    </a>
+                    </Link>
                     {/* <Link to="/staff-application" className="footer-career-link">Career</Link> Add Career link */}
                     {/* <div className="social-icons">
                         <a href="https://instagram.com" className="social-icon" aria-label="Instagram">

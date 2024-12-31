@@ -51,7 +51,7 @@ import AdminRoute from "./components/AdminRoute";
 function App() {
     return (
         <AuthProvider>
-            <Router>
+            <Router basename="/jandd_vite">
                 <div className="App">
                     <Routes>
                         <Route path="/jandd_vite" element={
@@ -104,7 +104,7 @@ function App() {
                         <Route path="/patients-application" element={<PatientApplication />} />
                         <Route path="/register-staff" element={<RegisterStaff />} />
                         <Route path="/staff-accounts" element={<StaffAccounts />} />
-                        <Route path="/jandd_vite/admin-login" element={<AdminLogin />} />
+                        <Route path="/admin-login" element={<AdminLogin />} />
                         <Route path="/user-login" element={<UserLogin />} />
                         {/* <Route path="/admin" element={<Dashboard/>}/> */}
                         <Route
