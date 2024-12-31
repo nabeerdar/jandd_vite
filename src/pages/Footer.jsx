@@ -15,7 +15,7 @@ const Footer = () => {
                     <p className="footer-subheading">
                         When you join J&D Homecare agency, you’re joining a team dedicated to your continuous support while emigrating to and living in the US.
                     </p>
-                    <a href="/admin-login">
+                    <a href="/jandd_vite/admin-login">
                         Admin
                     </a>
                     {/* <Link to="/staff-application" className="footer-career-link">Career</Link> Add Career link */}

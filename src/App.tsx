@@ -104,7 +104,7 @@ function App() {
                         <Route path="/patients-application" element={<PatientApplication />} />
                         <Route path="/register-staff" element={<RegisterStaff />} />
                         <Route path="/staff-accounts" element={<StaffAccounts />} />
-                        <Route path="/admin-login" element={<AdminLogin />} />
+                        <Route path="/jandd_vite/admin-login" element={<AdminLogin />} />
                         <Route path="/user-login" element={<UserLogin />} />
                         {/* <Route path="/admin" element={<Dashboard/>}/> */}
                         <Route
