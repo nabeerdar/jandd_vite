@@ -52,10 +52,8 @@ const AdminLogin = () => {
    
     // alert(loginData.username)
     try {
-      const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-
-      // const response = await fetch('/api/login', {
-      const response = await fetch(`${API_BASE_URL}/login`, {
+      
+      const response = await fetch('/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
