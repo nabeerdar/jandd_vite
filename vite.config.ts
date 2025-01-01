@@ -11,6 +11,7 @@ export default defineConfig({
         // target: 'http://localhost:5000', // Flask backend URL
         target: 'http://34.204.15.169/',
         changeOrigin: true, // Change the origin header to the target URL
+        secure: false,
         rewrite: (path) => path.replace(/^\/api/, ''), // Remove '/api' prefix if needed
       },
     },
