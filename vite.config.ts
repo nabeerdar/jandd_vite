@@ -9,9 +9,11 @@ export default defineConfig({
     proxy: {
       '/api': {
         // target: 'http://localhost:5000', // Flask backend URL
-        target: 'http://34.204.15.169/',
+        // target: 'http://34.204.15.169/',
+        target: 'https://janddbackend.xyz',
         changeOrigin: true, // Change the origin header to the target URL
-        secure: false,
+        // secure: false,
+        secure: true, // If backend is correctly set up with SSL, change it to:
         rewrite: (path) => path.replace(/^\/api/, ''), // Remove '/api' prefix if needed
       },
     },
