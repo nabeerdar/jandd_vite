@@ -9,7 +9,7 @@ const MainSection = () => {
         <section className="main-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
             <div className="main-content">
                 <h1> J & D Healthcare Services : Arrive and Thrive</h1>
-                <p>Explore exciting career opportunities with J & D Homecare agency !</p>
+                <p>Explore exciting  test career opportunities with J & D Homecare agency !</p>
           
             </div>
             <div className="nurses-image">
