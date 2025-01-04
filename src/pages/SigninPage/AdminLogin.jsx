@@ -52,7 +52,7 @@ const AdminLogin = () => {
    
     // alert(loginData.username)
 
-    const response = await fetch('/api/test')
+    const response = await fetch('https://janddbackend.xyz/api/test')
        if (!response.ok) {
         
         console.log("no response")
