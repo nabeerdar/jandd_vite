@@ -10,7 +10,7 @@ export default defineConfig({
       '/api': {
         // target: 'http://localhost:5000', // Flask backend URL
         // target: 'http://34.204.15.169/',
-        target: 'https://janddbackend.xyz',
+        target: 'http://janddbackend.xyz',
         changeOrigin: true, // Change the origin header to the target URL
         // secure: false,
         secure: true, // If backend is correctly set up with SSL, change it to:
