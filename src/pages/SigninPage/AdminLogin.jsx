@@ -52,51 +52,51 @@ const AdminLogin = () => {
    
     // alert(loginData.username)
 
-    // const response = await fetch('/api/test')
-    //    if (!response.ok) {
+    const response = await fetch('/api/test')
+       if (!response.ok) {
         
-    //     console.log("no response")
+        console.log("no response")
+      }
+    const data = await response.json(); // Get response data
+    console.log(data.message);
+    // try {
+      
+    //   const response = await fetch('/api/login', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(loginData), // Make sure loginData is defined
+    //   });
+
+    //   if (!response.ok) {
+        
+    //     const errorData = await response.json().catch(() => ({ error: 'Login failed' }));
+    //     throw new Error(errorData.error || 'Login failed');
     //   }
-    // const data = await response.json(); // Get response data
-    // console.log(data.message);
-    try {
       
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(loginData), // Make sure loginData is defined
-      });
-
-      if (!response.ok) {
-        
-        const errorData = await response.json().catch(() => ({ error: 'Login failed' }));
-        throw new Error(errorData.error || 'Login failed');
-      }
-      
-      const data = await response.json(); // Get response data
-      const { token, role } = data; // Assuming response contains token and role
-      // alert(token)
-      login(token, role); // Store token and role in context
+    //   const data = await response.json(); // Get response data
+    //   const { token, role } = data; // Assuming response contains token and role
+    //   // alert(token)
+    //   login(token, role); // Store token and role in context
       
 
-      if (role !== 'admin') {
-        // If the user is not an admin, show a toast and navigate away
-        toast.error('You are not an admin');
-        setTimeout(() => {
-          toast.success("Enter correct username / password"); // Redirect to a different page, e.g., home or dashboard
-        }, 1000);
-        return;
-      }
+    //   if (role !== 'admin') {
+    //     // If the user is not an admin, show a toast and navigate away
+    //     toast.error('You are not an admin');
+    //     setTimeout(() => {
+    //       toast.success("Enter correct username / password"); // Redirect to a different page, e.g., home or dashboard
+    //     }, 1000);
+    //     return;
+    //   }
 
-      toast.success(data.message); // Notify success
-      setTimeout(() => {
-        navigate('/admin'); // Navigate to the desired page
-      }, 1000);
-    } catch (error) {
-      toast.error(error.message || 'No response from server'); // Handle error
-    }
+    //   toast.success(data.message); // Notify success
+    //   setTimeout(() => {
+    //     navigate('/admin'); // Navigate to the desired page
+    //   }, 1000);
+    // } catch (error) {
+    //   toast.error(error.message || 'No response from server'); // Handle error
+    // }
   };
 
   const toggleForm = () => {
