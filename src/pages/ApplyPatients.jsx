@@ -107,7 +107,7 @@ const Apply2 = () => {
     } 
     
     else{
-
+      
       const templateParams = {
         patientFirstName: formData.patientFirstName,
         patientLastName: formData.patientLastName,
@@ -120,12 +120,12 @@ const Apply2 = () => {
         patientPCS: formData.patientPCS,
         patientLivingSituation: formData.patientLivingSituation,
         patientCarePlan: formData.patientCarePlan, 
-        experience: formData.experience,
+        experience: formData.experience,    
         patientPaidStatus: formData.patientPaidStatus,
         patientAvailability: formData.patientAvailability
       };
-    //   console.log(templateParams);
-
+      console.log(templateParams)
+  
       // Her Yahoo Account (to change template ID)
       // emailjs.send('service_azwr2ko', 'template_8smf10d', templateParams, 'x8rMdkYLyTy-pDl-5')
       //   .then((result) => {
@@ -135,9 +135,9 @@ const Apply2 = () => {
       //     console.error('Failed to send email:', error.text);
       //     alert('There was an error submitting your application. Please try again.');
       //   });
-
+  
       // My Yahoo Account
-      emailjs.send('service_4sio8w9', 'template_r260kkr', templateParams, 'GYsGVITgtiVJayvZ4')
+      emailjs.send('service_rclyy07', 'template_8smf10d', templateParams, 'EQYuw5GTTA9Cu32cb')
         .then((result) => {
           console.log('Email successfully sent:', result.text);
           alert('Your application has been submitted successfully!');
@@ -145,6 +145,8 @@ const Apply2 = () => {
           console.error('Failed to send email:', error.text);
           alert('There was an error submitting your application. Please try again.');
         });
+  
+        // location.reload()
       
 
       try {
@@ -178,7 +180,7 @@ const Apply2 = () => {
           });
           
         }
-        location.reload()
+        
 
         
       } catch (error) {
@@ -194,7 +196,7 @@ const Apply2 = () => {
 
 
 
-
+    
 
   };
   
