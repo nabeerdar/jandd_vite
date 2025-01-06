@@ -189,50 +189,48 @@ const Apply = () => {
   
         setResume("not added resume"); // Reset resume file
       }
-      else{
-        const templateParams = {
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          email: formData.email,
-          phone: formData.phone,
-          address: formData.address,
-          communication: formData.communication,
-          experience: formData.experience,
-          position: formData.position,
-          startDate: formData.startDate,
-          additionalInfo: formData.additionalInfo,
-          isOver18: formData.isOver18,             
-          isEligibleToWork: formData.isEligibleToWork,
-          ref1Name: formData.ref1Name,
-          ref1PhoneNumber: formData.ref1PhoneNumber,
-          ref2tName: formData.ref2Name,
-          ref2PhoneNumber: formData.ref2PhoneNumber
-        };
-        console.log(templateParams)
-        location.reload();
-        // Freelance Account
-    
-    
-        //------------------------------------------------------------
-    
-    
-    
-        emailjs.send('service_fa37aev', 'template_p9horu9', templateParams, 'i50EIwSANWvJaBaZ4')
-          .then((result) => {
-            console.log('Email successfully sent:', result.text);
-            alert('Your application has been submitted successfully!');
-          }, (error) => {
-            console.error('Failed to send email:', error.text);
-            alert('There was an error submitting your application. Please try again.');
-          });
-      }
     } catch (error) {
       console.error('Error submitting form:', error);
       // alert('ok')
       toast.error('Failed to submit application.');
     }
 
+    const templateParams = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      communication: formData.communication,
+      experience: formData.experience,
+      position: formData.position,
+      startDate: formData.startDate,
+      additionalInfo: formData.additionalInfo,
+      isOver18: formData.isOver18,             
+      isEligibleToWork: formData.isEligibleToWork,
+      ref1Name: formData.ref1Name,
+      ref1PhoneNumber: formData.ref1PhoneNumber,
+      ref2tName: formData.ref2Name,
+      ref2PhoneNumber: formData.ref2PhoneNumber
+    };
+    console.log(templateParams)
     
+    // Freelance Account
+
+
+    //------------------------------------------------------------
+
+
+
+    emailjs.send('service_fa37aev', 'template_p9horu9', templateParams, 'i50EIwSANWvJaBaZ4')
+      .then((result) => {
+        console.log('Email successfully sent:', result.text);
+        alert('Your application has been submitted successfully!');
+      }, (error) => {
+        console.error('Failed to send email:', error.text);
+        alert('There was an error submitting your application. Please try again.');
+      });
+      location.reload();
   };
 
   const handleResumeUpload = (e) => {
