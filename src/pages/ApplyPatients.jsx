@@ -114,7 +114,7 @@ const Apply2 = () => {
         console.log(response);
         if (response.status === 200 && response.status < 300) {
           // toast.success('Form submitted successfully!');
-          alert("Form submitted successfully")
+          alert("Form Details saved in database successfully")
           setFormData({
             patientFirstName: '',
             patientLastName: '',
@@ -131,53 +131,61 @@ const Apply2 = () => {
             patientPaidStatus: 'Private Funds',
             patientAvailability: 'Available Now',
           });
-          
         }
+
+        //sending email
+
+       
+
+        const templateParams = {
+          patientFirstName: formData.patientFirstName,
+          patientLastName: formData.patientLastName,
+          patientEmail: formData.patientEmail,
+          patientPhone: formData.patientPhone,
+          patientTakeOver: formData.patientTakeOver,
+          patientGender: formData.patientGender,
+          patientAge: formData.patientAge,
+          patientPDN: formData.patientPDN,
+          patientPCS: formData.patientPCS,
+          patientLivingSituation: formData.patientLivingSituation,
+          patientCarePlan: formData.patientCarePlan, 
+          experience: formData.experience,
+          patientPaidStatus: formData.patientPaidStatus,
+          patientAvailability: formData.patientAvailability
+        };
+      //   console.log(templateParams);
+
+        // Her Yahoo Account (to change template ID)
+        // emailjs.send('service_azwr2ko', 'template_8smf10d', templateParams, 'x8rMdkYLyTy-pDl-5')
+        //   .then((result) => {
+        //     console.log('Email successfully sent:', result.text);
+        //     alert('Your application has been submitted successfully!');
+        //   }, (error) => {
+        //     console.error('Failed to send email:', error.text);
+        //     alert('There was an error submitting your application. Please try again.');
+        //   });
+
+        // My Yahoo Account
+        emailjs.send('service_4sio8w9', 'template_r260kkr', templateParams, 'GYsGVITgtiVJayvZ4')
+          .then((result) => {
+            console.log('Email successfully sent:', result.text);
+            alert('Your application has been submitted successfully!');
+          }, (error) => {
+            console.error('Failed to send email:', error.text);
+            alert('There was an error submitting your application. Please try again.');
+          });
+
+          alert("Sent Email as well")
+        
+        
+        location.reload()
+
       } catch (error) {
         console.error('Error submitting form:', error);
         toast.error('Failed to submit form.');
       }
-          // else{
-            const templateParams = {
-              patientFirstName: formData.patientFirstName,
-              patientLastName: formData.patientLastName,
-              patientEmail: formData.patientEmail,
-              patientPhone: formData.patientPhone,
-              patientTakeOver: formData.patientTakeOver,
-              patientGender: formData.patientGender,
-              patientAge: formData.patientAge,
-              patientPDN: formData.patientPDN,
-              patientPCS: formData.patientPCS,
-              patientLivingSituation: formData.patientLivingSituation,
-              patientCarePlan: formData.patientCarePlan, 
-              experience: formData.experience,
-              patientPaidStatus: formData.patientPaidStatus,
-              patientAvailability: formData.patientAvailability
-            };
-          //   console.log(templateParams);
-
-            // Her Yahoo Account (to change template ID)
-            // emailjs.send('service_azwr2ko', 'template_8smf10d', templateParams, 'x8rMdkYLyTy-pDl-5')
-            //   .then((result) => {
-            //     console.log('Email successfully sent:', result.text);
-            //     alert('Your application has been submitted successfully!');
-            //   }, (error) => {
-            //     console.error('Failed to send email:', error.text);
-            //     alert('There was an error submitting your application. Please try again.');
-            //   });
-
-            // My Yahoo Account
-            emailjs.send('service_4sio8w9', 'template_r260kkr', templateParams, 'GYsGVITgtiVJayvZ4')
-              .then((result) => {
-                console.log('Email successfully sent:', result.text);
-                alert('Your application has been submitted successfully!');
-              }, (error) => {
-                console.error('Failed to send email:', error.text);
-                alert('There was an error submitting your application. Please try again.');
-              });
-            // }
+         
             
-            location.reload()
     }
 
 

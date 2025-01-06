@@ -16,27 +16,27 @@ import {
 const items = [
     {
         title: "Patients",
-        url: "/admin",
+        url: " /jandd_vite/admin",
         icon: Hospital,
     },
     {
         title: "Applicants",
-        url: "/applicants",
+        url: " /jandd_vite/applicants",
         icon: AppWindow,
     },
     {
         title: "Register Staff",
-        url: "/register-staff",
+        url: " /jandd_vite/register-staff",
         icon: ClipboardPen,
     },
     {
         title: "Staff Details",
-        url: "/staff-details",
+        url: " /jandd_vite/staff-details",
         icon: Signature,
     },
     {
       title: "Staff Accounts",
-      url: "/staff-accounts",
+      url: " /jandd_vite/staff-accounts",
       icon: Signature,
   }
 ]
