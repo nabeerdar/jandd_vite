@@ -145,9 +145,11 @@ const Apply = () => {
     }
 
     // Submit the form
+    
     try {
      
-      const response = await axios.post('/api/staff_applications', formDataToSend, {
+      // const response = await axios.post('/api/staff_applications', formDataToSend, {
+        const response = await axios.post('https://janddbackend.xyz/staff_applications', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data', // This ensures the file is sent correctly
         },
@@ -220,14 +222,14 @@ const Apply = () => {
 
 
 
-    // emailjs.send('service_fa37aev', 'template_p9horu9', templateParams, 'i50EIwSANWvJaBaZ4')
-    //   .then((result) => {
-    //     console.log('Email successfully sent:', result.text);
-    //     alert('Your application has been submitted successfully!');
-    //   }, (error) => {
-    //     console.error('Failed to send email:', error.text);
-    //     alert('There was an error submitting your application. Please try again.');
-    //   });
+    emailjs.send('service_fa37aev', 'template_p9horu9', templateParams, 'i50EIwSANWvJaBaZ4')
+      .then((result) => {
+        console.log('Email successfully sent:', result.text);
+        alert('Your application has been submitted successfully!');
+      }, (error) => {
+        console.error('Failed to send email:', error.text);
+        alert('There was an error submitting your application. Please try again.');
+      });
   };
 
   const handleResumeUpload = (e) => {
