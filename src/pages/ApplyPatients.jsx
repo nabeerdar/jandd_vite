@@ -108,51 +108,53 @@ const Apply2 = () => {
     
     else{
 
+      const templateParams = {
+        patientFirstName: formData.patientFirstName,
+        patientLastName: formData.patientLastName,
+        patientEmail: formData.patientEmail,
+        patientPhone: formData.patientPhone,
+        patientTakeOver: formData.patientTakeOver,
+        patientGender: formData.patientGender,
+        patientAge: formData.patientAge,
+        patientPDN: formData.patientPDN,
+        patientPCS: formData.patientPCS,
+        patientLivingSituation: formData.patientLivingSituation,
+        patientCarePlan: formData.patientCarePlan, 
+        experience: formData.experience,
+        patientPaidStatus: formData.patientPaidStatus,
+        patientAvailability: formData.patientAvailability
+      };
+    //   console.log(templateParams);
+
+      // Her Yahoo Account (to change template ID)
+      // emailjs.send('service_azwr2ko', 'template_8smf10d', templateParams, 'x8rMdkYLyTy-pDl-5')
+      //   .then((result) => {
+      //     console.log('Email successfully sent:', result.text);
+      //     alert('Your application has been submitted successfully!');
+      //   }, (error) => {
+      //     console.error('Failed to send email:', error.text);
+      //     alert('There was an error submitting your application. Please try again.');
+      //   });
+
+      // My Yahoo Account
+      emailjs.send('service_4sio8w9', 'template_r260kkr', templateParams, 'GYsGVITgtiVJayvZ4')
+        .then((result) => {
+          console.log('Email successfully sent:', result.text);
+          alert('Your application has been submitted successfully!');
+        }, (error) => {
+          console.error('Failed to send email:', error.text);
+          alert('There was an error submitting your application. Please try again.');
+        });
+      
+
       try {
         // const response = await axios.post('/api/apply_patients', formData);
         alert("wait it might a while, and click on ok")
         const response = await axios.post('https://janddbackend.xyz/apply_patients', formData);
         
-        const templateParams = {
-          patientFirstName: formData.patientFirstName,
-          patientLastName: formData.patientLastName,
-          patientEmail: formData.patientEmail,
-          patientPhone: formData.patientPhone,
-          patientTakeOver: formData.patientTakeOver,
-          patientGender: formData.patientGender,
-          patientAge: formData.patientAge,
-          patientPDN: formData.patientPDN,
-          patientPCS: formData.patientPCS,
-          patientLivingSituation: formData.patientLivingSituation,
-          patientCarePlan: formData.patientCarePlan, 
-          experience: formData.experience,
-          patientPaidStatus: formData.patientPaidStatus,
-          patientAvailability: formData.patientAvailability
-        };
-      //   console.log(templateParams);
-  
-        // Her Yahoo Account (to change template ID)
-        // emailjs.send('service_azwr2ko', 'template_8smf10d', templateParams, 'x8rMdkYLyTy-pDl-5')
-        //   .then((result) => {
-        //     console.log('Email successfully sent:', result.text);
-        //     alert('Your application has been submitted successfully!');
-        //   }, (error) => {
-        //     console.error('Failed to send email:', error.text);
-        //     alert('There was an error submitting your application. Please try again.');
-        //   });
-  
-        // My Yahoo Account
-        emailjs.send('service_4sio8w9', 'template_r260kkr', templateParams, 'GYsGVITgtiVJayvZ4')
-          .then((result) => {
-            console.log('Email successfully sent:', result.text);
-            alert('Your application has been submitted successfully!');
-          }, (error) => {
-            console.error('Failed to send email:', error.text);
-            alert('There was an error submitting your application. Please try again.');
-          });
         
         
-        location.reload()
+        
         
         console.log(response);
         if (response.status === 200 && response.status < 300) {
@@ -176,6 +178,7 @@ const Apply2 = () => {
           });
           
         }
+        location.reload()
 
         
       } catch (error) {
