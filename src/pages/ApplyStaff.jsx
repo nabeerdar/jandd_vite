@@ -149,6 +149,7 @@ const Apply = () => {
     try {
      
       // const response = await axios.post('/api/staff_applications', formDataToSend, {
+        alert("wait it might take a while, and click on ok")
         const response = await axios.post('https://janddbackend.xyz/staff_applications', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data', // This ensures the file is sent correctly
@@ -164,7 +165,7 @@ const Apply = () => {
       }
 
       if (response.status === 200 || response.status === 201) {
-        alert("Submitted")
+        alert("Saved in Database")
         // toast.success('Application submitted successfully!');
         
         // Reset form data after successful submission
@@ -191,8 +192,8 @@ const Apply = () => {
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      // alert('ok')
-      toast.error('Failed to submit application.');
+      alert('Failed to submit application.')
+      // toast.error('Failed to submit application.');
     }
 
     const templateParams = {
