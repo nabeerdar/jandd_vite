@@ -60,7 +60,9 @@ const Job = () => {
           
       
           // Make the POST request
-          const response = await axios.post('/api/job', formData, {
+         
+        //   const response = await axios.post('/api/job', formData, {
+          const response = await axios.post(' https://janddbackend.xyz/job', formData, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },

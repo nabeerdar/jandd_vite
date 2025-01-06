@@ -39,7 +39,9 @@ const Dashboard = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/registered_users');
+        
+        // const response = await axios.get('/api/registered_users');
+        const response = await axios.get('https://janddbackend.xyz/registered_users');
         setData(response.data);
       } catch (error) {
         setError('Failed to fetch data. Please try again later.');

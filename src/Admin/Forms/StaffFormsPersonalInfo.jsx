@@ -50,7 +50,9 @@ const DetailedFormPersonalInfo = () => {
     const fetchPersonalInfo = async () => {
       
       try {
-        const response = await axios.get("/api/get_personal_info");
+        
+        // const response = await axios.get("/api/get_personal_info");
+        const response = await axios.get("https://janddbackend.xyz/get_personal_info");
 
          // Ensure the userId is valid before filtering
          if (isNaN(userId)) {
@@ -94,7 +96,9 @@ const DetailedFormPersonalInfo = () => {
     const fetchEducationData = async () => {
      
       try {
-        const response = await axios.get("/api/get_education_info");
+        
+        // const response = await axios.get("/api/get_education_info");
+        const response = await axios.get("https://janddbackend.xyz/get_education_info");
        
   
         const userEducationData = response.data.education.filter(
@@ -177,7 +181,9 @@ const DetailedFormPersonalInfo = () => {
     useEffect(() => {
       const fetchEmployerData = async () => {
         try {
-          const response = await axios.get("/api/get_former_employers");
+          
+          // const response = await axios.get("/api/get_former_employers");
+          const response = await axios.get("https://janddbackend.xyz/get_former_employers");
   
           // Filter records for the current user
           const userEmployerData = response.data.former_employers.filter(
@@ -209,7 +215,9 @@ const DetailedFormPersonalInfo = () => {
     useEffect(() => {
       const fetchPersonalReferences = async () => {
         try {
-          const response = await axios.get('/api/get_personal_references');
+          
+          // const response = await axios.get('/api/get_personal_references');
+          const response = await axios.get('https://janddbackend.xyz/get_personal_references');
   
           const data = response.data.personal_references;
           setPersonalReferences(data);
@@ -248,7 +256,9 @@ const DetailedFormPersonalInfo = () => {
     useEffect(() => {
       const fetchProfessionalKnowledge = async () => {
         try {
-          const response = await axios.get('/api/get_professional_knowledge');
+          
+          // const response = await axios.get('/api/get_professional_knowledge');
+          const response = await axios.get('https://janddbackend.xyz/get_professional_knowledge');
           console.log("response: ", response)
 
           const userProfessionalKnowledge = response.data.professional_knowledge.filter(

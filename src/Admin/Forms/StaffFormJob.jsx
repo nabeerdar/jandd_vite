@@ -42,7 +42,9 @@ const Job = () => {
     useEffect(() => {
         const fetchJobData = async () => {
             try {
-                const response = await fetch(`/api/get_job_data`);
+                
+                // const response = await fetch(`/api/get_job_data`);
+                const response = await fetch(`https://janddbackend.xyz/get_job_data`);
                 
                 if (!response.ok) {
                     throw new Error('Data not found');

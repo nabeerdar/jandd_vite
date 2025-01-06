@@ -42,7 +42,9 @@ const StaffDetails = () => {
     const fetchData = async () => {
       console.log('Fetching data...');
       try {
-        const response = await axios.get('/api/get_personal_info');
+        
+        // const response = await axios.get('/api/get_personal_info');
+        const response = await axios.get('https://janddbackend.xyz/get_personal_info');
         console.log("API Response:", response.data);
         setData(response.data);
       } catch (error) {

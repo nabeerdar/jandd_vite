@@ -57,7 +57,9 @@ const StaffFormVerification = () => {
     useEffect(() => {
         const fetchVerificationData = async () => {
             try {
-                const response = await fetch(`/api/get_verification_data`);
+                
+                // const response = await fetch(`/api/get_verification_data`);
+                const response = await fetch(`https://janddbackend.xyz/get_verification_data`);
                 
                 if (!response.ok) {
                     throw new Error('Verification data not found');

@@ -42,7 +42,9 @@ const StaffFormHandBook = () => {
   useEffect(() => {
     const fetchEmployeeData = async () => {
         try {
-            const response = await fetch(`/api/get_handbook_data`);
+          
+            // const response = await fetch(`/api/get_handbook_data`);
+            const response = await fetch(`https://janddbackend.xyz/get_handbook_data`);
             
             if (!response.ok) {
                 throw new Error('Employee data not found');

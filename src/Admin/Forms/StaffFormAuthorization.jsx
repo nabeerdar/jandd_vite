@@ -69,7 +69,9 @@ const StaffFormAuthorization = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await fetch('/api/get_authorization_and_criminal_data');
+                
+                // const response = await fetch('/api/get_authorization_and_criminal_data');
+                const response = await fetch('https://janddbackend.xyz/get_authorization_and_criminal_data');
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }

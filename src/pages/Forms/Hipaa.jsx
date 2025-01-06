@@ -61,7 +61,9 @@ const Hipaa = () => {
           
       
           // Make the POST request
-          const response = await axios.post('/api/hipaa', formData, {
+          
+        //   const response = await axios.post('/api/hipaa', formData, {
+          const response = await axios.post('https://janddbackend.xyz/hipaa', formData, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },

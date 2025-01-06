@@ -41,7 +41,9 @@ const Dashboard = () => {
     const fetchData = async () => {
       console.log('Fetching data...');
       try {
-        const response = await axios.get('/api/get_patients_applications');
+        
+        // const response = await axios.get('/api/get_patients_applications');
+        const response = await axios.get('https://janddbackend.xyz/get_patients_applications');
         console.log("API Response:", response.data);
         setData(response.data);
       } catch (error) {

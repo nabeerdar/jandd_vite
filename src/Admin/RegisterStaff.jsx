@@ -31,7 +31,9 @@ const AdminRegister = () => {
     };
 
     try {
-      const response = await fetch('/api/registered', {
+     
+      // const response = await fetch('/api/registered', {
+      const response = await fetch('https://janddbackend.xyz/registered', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -42,7 +42,9 @@ const StaffFormRegistered = () => {
     useEffect(() => {
         const fetchJobData = async () => {
             try {
-                const response = await fetch(`/api/get_registered_nurse_data`);
+                
+                // const response = await fetch(`/api/get_registered_nurse_data`);
+                const response = await fetch(`https://janddbackend.xyz/get_registered_nurse_data`);
                 
                 if (!response.ok) {
                     throw new Error('Data not found');

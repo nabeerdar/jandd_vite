@@ -88,8 +88,10 @@ const Authorization = () => {
             criminalBackground: criminalRecord
         };
       
-          // Make the POST request
-          const response = await axios.post('/api/authorization', dataToSend, {
+          // Make the POST request 
+          
+        //   const response = await axios.post('/api/authorization', dataToSend, {
+          const response = await axios.post('https://janddbackend.xyz/authorization', dataToSend, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },

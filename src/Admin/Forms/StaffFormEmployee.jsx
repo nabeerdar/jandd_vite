@@ -50,7 +50,8 @@ const StaffFormEmployee = () => {
     useEffect(() => {
         const fetchEmployeeData = async () => {
             try {
-                const response = await fetch(`/api/get_employee_form_data`);
+
+                const response = await fetch(`https://janddbackend.xyz/get_employee_form_data`);
                 
                 if (!response.ok) {
                     throw new Error('Employee data not found');

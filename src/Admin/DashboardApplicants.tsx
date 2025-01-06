@@ -49,7 +49,9 @@ const DashboardApplicants = () => {
       console.log('Fetching data...'); // Check if this is printed
       try {
         // Update API endpoint to match your Flask API
-        const response = await axios.get('/api/staff_applications'); 
+       
+        // const response = await axios.get('/api/staff_applications'); 
+        const response = await axios.get('https://janddbackend.xyz/staff_applications'); 
         console.log("API Response:", response.data); // Check the data structure
         setData(response.data);  // Update the state with the fetched data
       } catch (error) {

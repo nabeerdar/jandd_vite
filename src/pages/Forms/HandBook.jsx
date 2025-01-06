@@ -62,7 +62,9 @@ const HandBook = () => {
           
       
           // Make the POST request
-          const response = await axios.post('/api/handbook', formData, {
+         
+          // const response = await axios.post('/api/handbook', formData, {
+          const response = await axios.post('https://janddbackend.xyz/handbook', formData, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },
