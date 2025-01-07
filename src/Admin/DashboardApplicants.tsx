@@ -66,13 +66,13 @@ const DashboardApplicants = () => {
   }, [isLoggedIn, navigate]);
 
   // Calculate table width based on sidebar state
-  const mainWidth = sidebarOpen ? 'calc(100vw - 256px)' : '90vw'; // Assuming sidebar width is 250px
+  const mainWidth = sidebarOpen ? 'calc(max-content - 256px)' : 'max-content'; // Assuming sidebar width is 250px
   console.log("Testing mainWidth: ", mainWidth);
 
   return (
     <SidebarProvider>
       <AppSidebar toggleSidebarParent={toggleSidebarParent} />
-      <main className="layout-main flex flex-col md:flex-row" style={{ width: mainWidth }}>
+      <main className="layout-main flex flex-col md:flex-row" style={{ width: mainWidth, backgroundColor: '#f5f4fa'}}>
         {/* Logout button */}
         <button
             onClick={handleLogout}

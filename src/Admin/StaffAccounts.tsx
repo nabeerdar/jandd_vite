@@ -53,12 +53,12 @@ const Dashboard = () => {
     fetchData();
   }, [isLoggedIn, navigate]);
 
-  const mainWidth = sidebarOpen ? 'calc(100vw - 256px)' : '85vw';
+  const mainWidth = sidebarOpen ? 'calc(max-content - 256px)' : 'max-content';
 
   return (
     <SidebarProvider>
       <AppSidebar toggleSidebarParent={toggleSidebarParent} />
-      <main className="layout-main flex flex-col md:flex-row" style={{ width: mainWidth }}>
+      <main className="layout-main flex flex-col md:flex-row" style={{ width: mainWidth, backgroundColor: '#f5f4fa' }}>
         <button
           onClick={handleLogout}
           className="absolute top-5 right-5 bg-red-500 text-white px-4 py-2 rounded-md"

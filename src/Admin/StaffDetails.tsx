@@ -58,13 +58,13 @@ const StaffDetails = () => {
     fetchData();
   }, [isLoggedIn, navigate]); // Dependencies include isLoggedIn to trigger recheck on login status
 
-  const mainWidth = sidebarOpen ? 'calc(100vw - 256px)' : '85vw';
+  const mainWidth = sidebarOpen ? 'calc(max-content - 256px)' : 'max-content';
   console.log("Testing mainWidth: ", mainWidth);
 
   return (
     <SidebarProvider>
       <AppSidebar toggleSidebarParent={toggleSidebarParent} />
-      <main className="layout-main flex flex-col md:flex-row" style={{ width: mainWidth }}>
+      <main className="layout-main flex flex-col md:flex-row" style={{ width: mainWidth, backgroundColor: '#f5f4fa' }}>
          {/* Logout button */}
          <button
             onClick={handleLogout}
