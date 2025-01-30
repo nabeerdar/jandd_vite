@@ -51,7 +51,8 @@ import AdminRoute from "./components/AdminRoute";
 function App() {
     return (
         <AuthProvider>
-            <Router basename="/jandd_vite">
+            {/* <Router basename="/jandd_vite"> */}
+            <Router basename="/">
                 <div className="App">
                     <Routes>
                         <Route path="/jandd_vite" element={

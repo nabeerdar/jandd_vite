@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Application2.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 
 const Application2 = () => {
     const [currentSection, setCurrentSection] = useState('personal');
@@ -214,8 +214,9 @@ const Application2 = () => {
       
           // Make the POST request
           // const response = await axios.post('/api/application2', dataToSubmit, {
-          const response = await axios.post('https://janddbackend.xyz/application2', dataToSubmit, {
-          
+          //const response = await axios.post('https://janddbackend.xyz/application2', dataToSubmit, {
+          const response = await axios.post('http://localhost:5000/application2', dataToSubmit, {
+
             headers: {
               Authorization: `Bearer ${authToken}`,
             },
@@ -897,9 +898,9 @@ const Application2 = () => {
                     </button>
                 </div>
             </div>
-            <div>
-              <a href="/user-login" class="login-link float-left">Login here if session expires</a>
-            </div>
+            <Link to="/user-login" className="login-link float-left">
+              Login here if session expires
+            </Link>
         
         </>
     );

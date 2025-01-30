@@ -23,6 +23,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/jandd_vite",
+  base: "/",
+  // base: "/jandd_vite",
   
 })
