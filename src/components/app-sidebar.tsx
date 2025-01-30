@@ -16,27 +16,32 @@ import {
 const items = [
     {
         title: "Patients",
-        url: " /jandd_vite/admin",
+        // url: " /jandd_vite/admin",
+        url: " /admin",
         icon: Hospital,
     },
     {
         title: "Applicants",
-        url: " /jandd_vite/applicants",
+        // url: " /jandd_vite/applicants",
+        url: " /applicants",
         icon: AppWindow,
     },
     {
         title: "Register Staff",
-        url: " /jandd_vite/register-staff",
+        // url: " /jandd_vite/register-staff",
+        url: " /register-staff",
         icon: ClipboardPen,
     },
     {
         title: "Staff Details",
-        url: " /jandd_vite/staff-details",
+        // url: " /jandd_vite/staff-details",
+        url: " /staff-details",
         icon: Signature,
     },
     {
       title: "Staff Accounts",
-      url: " /jandd_vite/staff-accounts",
+      // url: " /jandd_vite/staff-accounts",
+      url: " /staff-accounts",
       icon: Signature,
   }
 ]
