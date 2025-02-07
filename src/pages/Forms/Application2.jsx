@@ -214,8 +214,8 @@ const Application2 = () => {
       
           // Make the POST request
           // const response = await axios.post('/api/application2', dataToSubmit, {
-          //const response = await axios.post('https://janddbackend.xyz/application2', dataToSubmit, {
-          const response = await axios.post('http://localhost:5000/application2', dataToSubmit, {
+          const response = await axios.post('https://janddbackend.xyz/application2', dataToSubmit, {
+          // const response = await axios.post('http://localhost:5000/application2', dataToSubmit, {
 
             headers: {
               Authorization: `Bearer ${authToken}`,
