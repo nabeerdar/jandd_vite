@@ -629,7 +629,7 @@ const Application2 = () => {
                   name="professional-knowledge"
                   value={item.category}
                   // checked={selectedCategoryProKnowledge === item.category}
-                  onChange={() => handleRadioChangeProKnowledge(item.category)}
+                  // onChange={() => handleRadioChangeProKnowledge(item.category)}
                 />{" "}
                 {item.category}
               </td>
