@@ -625,10 +625,10 @@ const Application2 = () => {
             <tr key={item.category}>
               <td>
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="professional-knowledge"
                   value={item.category}
-                  checked={selectedCategoryProKnowledge === item.category}
+                  // checked={selectedCategoryProKnowledge === item.category}
                   onChange={() => handleRadioChangeProKnowledge(item.category)}
                 />{" "}
                 {item.category}
@@ -638,7 +638,7 @@ const Application2 = () => {
                   rows="1"
                   cols="10"
                   value={item.yearsOfExperience}
-                  disabled={selectedCategoryProKnowledge !== item.category}
+                  // disabled={selectedCategoryProKnowledge !== item.category}
                   onChange={(e) =>
                     handleInputProKnowledge(item.category, "yearsOfExperience", e.target.value)
                   }
@@ -649,7 +649,7 @@ const Application2 = () => {
                   rows="1"
                   cols="30"
                   value={item.specifics}
-                  disabled={selectedCategoryProKnowledge !== item.category}
+                  // disabled={selectedCategoryProKnowledge !== item.category}
                   onChange={(e) =>
                     handleInputProKnowledge(item.category, "specifics", e.target.value)
                   }
