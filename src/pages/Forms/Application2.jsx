@@ -16,6 +16,63 @@ const Application2 = () => {
       navigate('/authorization');
     };
 
+    const SwitchTabToAuthorization = () => {
+      // Validate that all Education Completed fields are filled
+      const isValid = educationData.every(
+        (row) => row.school.trim() !== "" && row.year.trim() !== "" && row.degree.trim() !== ""
+      );
+
+      if (!isValid) {
+          alert("Please fill all Education Completed data before proceeding.");
+          return;
+      }
+
+      // Validate Former Employers Data
+      const isEmploymentValid = formerEmployers.every(
+        (row) =>
+            row.from.trim() !== "" &&
+            row.to.trim() !== "" &&
+            row.employer.trim() !== "" &&
+            row.phone.trim() !== "" &&
+            row.position.trim() !== "" &&
+            row.salary.trim() !== "" &&
+            row.reason.trim() !== ""
+      );
+
+      // If any validation fails, show an alert and stop
+      if (!isEmploymentValid) {
+          alert("Please fill all Former Employers data before proceeding.");
+          return;
+      }
+
+      const isProfessionalKnowledgeValid = professionalKnowledge.every(
+        (row) => row.yearsOfExperience.trim() !== "" && row.specifics.trim() !== ""
+      );
+
+      if (!isProfessionalKnowledgeValid) {
+          alert("Please fill all Professional Knowledge fields before proceeding.");
+          return;
+      }
+
+      // Validate Personal References Data
+    const isPersonalReferencesValid = personalReferences.every(
+      (row) =>
+          row.name.trim() !== "" &&
+          row.address.trim() !== "" &&
+          row.phone.trim() !== "" &&
+          row.business.trim() !== "" &&
+          row.yearsKnown.trim() !== ""
+    );
+
+    if (!isPersonalReferencesValid) {
+        alert("Please fill all Personal References data before proceeding.");
+        return;
+    }
+
+      // If validation passes, move to the next section
+      setCurrentSection('authorization');
+    }
+
 
     const [formData, setFormData] = useState({
         fullName: '',
@@ -161,17 +218,8 @@ const Application2 = () => {
       }
     };
 
-    const [isTermsChecked, setIsTermsChecked] = useState(false);
     const [lastSection, setLastSection] = useState('authorization');
 
-    // Handle checkbox change
-    const handleCheckboxChange = () => {
-      setIsTermsChecked(!isTermsChecked);
-    };
-
-    
-
-    
 
 
       const handleRadioChange = (e) => {
@@ -182,18 +230,25 @@ const Application2 = () => {
           }));
       };
 
-  //   const handleRadioChange = (category) => {
-  //     setSelectedCategory(category);
-  //   };
 
-      // Handle form submission
+      const [isTermsChecked1, setIsTermsChecked1] = useState(false);
+      const [isTermsChecked2, setIsTermsChecked2] = useState(false);
+
+      // Function to handle checkbox changes
+      const handleCheckboxChange1 = () => {
+          setIsTermsChecked1((prev) => !prev);
+      };
+
+      const handleCheckboxChange2 = () => {
+          setIsTermsChecked2((prev) => !prev);
+      };
+
+      // Check if both checkboxes are checked
+      const isBothTermsChecked = isTermsChecked1 && isTermsChecked2;
+
       const handleSubmit = async (e) => {
         e.preventDefault();
       
-        if (!isTermsChecked) {
-          alert("You must accept the terms before submitting the form.");
-          return;
-        }
       
         // Check if the user is logged in by checking the token in sessionStorage
         const authToken = sessionStorage.getItem('token_user');
@@ -624,14 +679,17 @@ const Application2 = () => {
           {professionalKnowledge.map((item) => (
             <tr key={item.category}>
               <td>
-                <input
+                <div style={{paddingLeft: "5px"}}>
+                  {item.category}
+                </div>
+                {/* <input
                   type="checkbox"
                   name="professional-knowledge"
                   value={item.category}
                   // checked={selectedCategoryProKnowledge === item.category}
                   // onChange={() => handleRadioChangeProKnowledge(item.category)}
-                />{" "}
-                {item.category}
+                /> */}
+                
               </td>
               <td>
                 <textarea
@@ -746,7 +804,7 @@ const Application2 = () => {
                                     <button
                                         type="button"
                                         className="Application2-next-button"
-                                        onClick={() => setCurrentSection('authorization')} 
+                                        onClick={() => SwitchTabToAuthorization()} 
                                     >
                                         Next
                                     </button>
@@ -768,14 +826,16 @@ const Application2 = () => {
                    
                    
                 <div className="terms-section">
-  <label className="terms-checkbox-label">
-    <input
-      required
-      type="checkbox"
-      className="terms-checkbox"
-    />
-    I accept the Terms
-  </label>
+                <label className="terms-checkbox-label">
+                  <input
+                      required
+                      type="checkbox"
+                      className="terms-checkbox"
+                      checked={isTermsChecked1}
+                      onChange={handleCheckboxChange1}
+                  />
+                  I accept the Terms
+              </label>
 </div>
 
 {/* <div className="sig-form-section">
@@ -829,14 +889,14 @@ const Application2 = () => {
     />
   </label>
 </div> */}
-                     <div className="terms-section">
+                    <div className="terms-section">
                       <label className="terms-checkbox-label">
                         <input
-                          required
-                          type="checkbox"
-                          className="terms-checkbox"
-                          checked={isTermsChecked}
-                          onChange={handleCheckboxChange}
+                            required
+                            type="checkbox"
+                            className="terms-checkbox"
+                            checked={isTermsChecked2}
+                            onChange={handleCheckboxChange2}
                         />
                         I accept the Terms
                       </label>
@@ -858,7 +918,8 @@ const Application2 = () => {
                   <button
                     type="submit"
                     className="Application2-submit-button"
-                    disabled={!isTermsChecked} // Disable button if terms are not checked
+                    // disabled={!isBothTermsChecked} // Disabled unless both checkboxes are checked
+
                   >
                     Submit
                   </button>
