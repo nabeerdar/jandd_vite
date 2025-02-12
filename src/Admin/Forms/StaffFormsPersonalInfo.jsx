@@ -218,9 +218,18 @@ const DetailedFormPersonalInfo = () => {
           
           // const response = await axios.get('/api/get_personal_references');
           const response = await axios.get('https://janddbackend.xyz/get_personal_references');
-  
-          const data = response.data.personal_references;
-          setPersonalReferences(data);
+          
+          const userPersonalReferences = response.data.references.filter(
+            (employer) => employer.user_id === userId
+          );
+
+          if (userPersonalReferences && userPersonalReferences.length > 0) {
+            setPersonalReferences(userPersonalReferences);
+          } else {
+            setPersonalReferences([]);
+          }
+          // const data = response.data.references;
+          // setPersonalReferences(data);
         } catch (err) {
           console.error('Error fetching personal references:', err);
           setError('Failed to fetch personal references.');
