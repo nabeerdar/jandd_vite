@@ -118,6 +118,7 @@ const Hipaa = () => {
                             name="declineVaccination"
                             checked={formData.declineVaccination}
                             onChange={handleChange}
+                            required
                         />
                         <label htmlFor="decline-checkbox" className="Hipaa-checkbox-label">
                             I decline the Hepatitis B vaccination
@@ -144,6 +145,7 @@ const Hipaa = () => {
                                 name="date1"
                                 value={formData.date1}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>
@@ -194,6 +196,7 @@ const Hipaa = () => {
                                 name="date2"
                                 value={formData.date2}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>

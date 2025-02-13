@@ -45,12 +45,12 @@ const Application2 = () => {
           return;
       }
 
-      const isProfessionalKnowledgeValid = professionalKnowledge.every(
+      const isProfessionalKnowledgeValid = professionalKnowledge.some(
         (row) => row.yearsOfExperience.trim() !== "" && row.specifics.trim() !== ""
       );
 
       if (!isProfessionalKnowledgeValid) {
-          alert("Please fill all Professional Knowledge fields before proceeding.");
+          alert("Please check Professional Knowledge section before proceeding.");
           return;
       }
 

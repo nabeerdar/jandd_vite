@@ -99,6 +99,10 @@ const Nurse = () => {
                 {/* Job Title */}
                 <h2 className='subheading_h22'>Licensed Practical Nurse</h2>
 
+                <p style={{fontStyle:"italic", textAlign: "center", fontSize: "small",  color: "grey"}}>
+                    Note: Only apply fill this form if you're applying for this job category, then check next form Registered Nurse or go back to previous form (Personal Care Assistant or Nurse Assistant I)
+                </p>
+
                 {/* Job Summary */}
                 <h3>Job Summary:</h3>
                 <p>
@@ -145,6 +149,7 @@ const Nurse = () => {
                                     name="agreedTo"
                                     value={formData.agreedTo}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <label className="job-label">
@@ -155,6 +160,7 @@ const Nurse = () => {
                                     name="acceptedBy"
                                     value={formData.acceptedBy}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                         </div>
@@ -193,6 +199,7 @@ const Nurse = () => {
                                     name="date1"
                                     value={formData.date1}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <label className="job-label">
@@ -203,6 +210,7 @@ const Nurse = () => {
                                     name="date2"
                                     value={formData.date2}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                         </div>

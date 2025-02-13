@@ -99,7 +99,9 @@ const Job = () => {
                     <h2 className='subheading_h2'> J AND D HEALTHCARE SERVICES</h2>
                 {/* Job Title */}
                 <h2 className='subheading_h22'>Personal Care Assistant or Nurse Assistant I</h2>
-
+                <p style={{fontStyle:"italic", textAlign: "center", fontSize: "small", color: "grey"}}>
+                    Note: Only apply fill this form if you're applying for this job category, or check next forms (Licensed Practical Nurse / Registered Nurse)
+                </p>
                 {/* Job Summary */}
                 <h3>Job Summary:</h3>
                 <p>
@@ -153,6 +155,7 @@ const Job = () => {
                                     name="agreedTo"
                                     value={formData.agreedTo}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <label className="job-label">
@@ -163,6 +166,7 @@ const Job = () => {
                                     name="acceptedBy"
                                     value={formData.acceptedBy}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                         </div>
@@ -201,6 +205,7 @@ const Job = () => {
                                     name="date1"
                                     value={formData.date1}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <label className="job-label">
@@ -211,6 +216,7 @@ const Job = () => {
                                     name="date2"
                                     value={formData.date2}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                         </div>

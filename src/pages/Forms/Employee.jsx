@@ -114,6 +114,7 @@ const Employee = () => {
                     name="insuranceCompany"
                     value={formData.insuranceCompany}
                     onChange={handleChange}
+                    required
                   />
                 </label>
                 <label className="Employee-label">
@@ -124,6 +125,7 @@ const Employee = () => {
                     name="claimsRepresentativePhone"
                     value={formData.claimsRepresentativePhone}
                     onChange={handleChange}
+                    required
                   />
                 </label>
               </div>
@@ -136,6 +138,7 @@ const Employee = () => {
                     name="policyNumber"
                     value={formData.policyNumber}
                     onChange={handleChange}
+                    required
                   />
                 </label>
                 <label className="Employee-label">
@@ -146,6 +149,7 @@ const Employee = () => {
                     name="policyExpirationDate"
                     value={formData.policyExpirationDate}
                     onChange={handleChange}
+                    required
                   />
                 </label>
               </div>
@@ -169,6 +173,7 @@ const Employee = () => {
                     name="coverageVerificationDate"
                     value={formData.coverageVerificationDate}
                     onChange={handleChange}
+                    required
                   />
                 </label>
               </div>
@@ -221,6 +226,7 @@ const Employee = () => {
                       name="employeeSignatureDate"
                       value={formData.employeeSignatureDate}
                       onChange={handleChange}
+                      required
                     />
                   </label>
                 </div>
@@ -244,6 +250,7 @@ const Employee = () => {
                       name="jdRepSignatureDate"
                       value={formData.jdRepSignatureDate}
                       onChange={handleChange}
+                      required
                     />
                   </label>
                 </div>

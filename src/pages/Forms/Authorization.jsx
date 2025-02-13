@@ -72,7 +72,19 @@ const Authorization = () => {
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-      
+
+        const isCriminalRecordValid = criminalRecord.conviction !== "";
+
+        if (!isCriminalRecordValid) {
+            alert("Please select Yes or No for the conviction question.");
+            return;
+        }
+
+        // Require explanation only if "Yes" is selected
+        if (criminalRecord.conviction === "yes" && criminalRecord.explanation.trim() === "") {
+            alert("Please provide an explanation for your conviction.");
+            return;
+        }
       
         // Check if the user is logged in by checking the token in sessionStorage
         const authToken = sessionStorage.getItem('token_user');
@@ -153,6 +165,7 @@ const Authorization = () => {
                                     name="firstName"
                                     value={formData.firstName}
                                     onChange={handleChange}
+                                    required
                                 />
                                 <input
                                     type="text"
@@ -160,6 +173,7 @@ const Authorization = () => {
                                     name="middleName"
                                     value={formData.middleName}
                                     onChange={handleChange}
+                                    required
                                 />
                                 <input
                                     type="text"
@@ -167,6 +181,7 @@ const Authorization = () => {
                                     name="lastName"
                                     value={formData.lastName}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                         </div>
@@ -180,6 +195,7 @@ const Authorization = () => {
                                         name="dateOfBirth"
                                         value={formData.dateOfBirth}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </div>
                                 <div className="authorization-second-column">
@@ -189,6 +205,7 @@ const Authorization = () => {
                                         name="ssn"
                                         value={formData.ssn}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -203,6 +220,7 @@ const Authorization = () => {
                                         name="driversLicenseNumber"
                                         value={formData.driversLicenseNumber}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </div>
                                 <div className="authorization-second-column">
@@ -212,6 +230,7 @@ const Authorization = () => {
                                         name="stateIssued"
                                         value={formData.stateIssued}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -224,6 +243,7 @@ const Authorization = () => {
                                 name="formerNames"
                                 value={formData.formerNames}
                                 onChange={handleChange}
+                                required
                             />
                         </div>
 
@@ -247,6 +267,7 @@ const Authorization = () => {
                                         name="signatureDate"
                                         value={formData.signatureDate}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -320,6 +341,7 @@ const Authorization = () => {
                                         name="representative"
                                         value={criminalRecord.representative}
                                         onChange={handleCriminalRecordChange}
+                                        required
                                     />
                                 </div>
                                 <div className="authorization-second-column">
@@ -329,6 +351,7 @@ const Authorization = () => {
                                         name="representativeDate"
                                         value={criminalRecord.representativeDate}
                                         onChange={handleCriminalRecordChange}
+                                        required
                                     />
                                 </div>
                             </div>

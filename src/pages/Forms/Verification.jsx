@@ -60,7 +60,19 @@ const Verification = () => {
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-      
+
+        const isRehireValid = formData.eligibleForRehire !== "";
+
+        if (!isRehireValid) {
+            alert("Please select whether you are eligible for rehire.");
+            return;
+        }
+
+        // Require explanation only if "No" is selected
+        if (formData.eligibleForRehire === "No" && formData.rehireExplanation.trim() === "") {
+            alert("Please provide an explanation if you are not eligible for rehire.");
+            return;
+        }
       
         // Check if the user is logged in by checking the token in sessionStorage
         const authToken = sessionStorage.getItem('token_user');
@@ -70,10 +82,7 @@ const Verification = () => {
         }
       
         try {
-          
-      
           // Make the POST request
-          
           // const response = await axios.post('/api/verification', formData, {
           const response = await axios.post(' https://janddbackend.xyz/verification', formData, {
             headers: {
@@ -130,6 +139,7 @@ const Verification = () => {
                                 name="applicantName"
                                 value={formData.applicantName}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                         <label className="Verification-label">
@@ -140,6 +150,7 @@ const Verification = () => {
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                         <label className="Verification-label">
@@ -150,6 +161,7 @@ const Verification = () => {
                                 name="title"
                                 value={formData.title}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>
@@ -179,6 +191,7 @@ const Verification = () => {
                                 name="applicantDate"
                                 value={formData.applicantDate}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>
@@ -193,6 +206,7 @@ const Verification = () => {
                                 name="employer"
                                 value={formData.employer}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                         <label className="Verification-label">
@@ -203,6 +217,7 @@ const Verification = () => {
                                 name="employerPhone"
                                 value={formData.employerPhone}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>
@@ -215,6 +230,7 @@ const Verification = () => {
                             name="address"
                             value={formData.address}
                             onChange={handleChange}
+                            required
                         />
                     </label>
 
@@ -227,6 +243,7 @@ const Verification = () => {
                                 name="datesEmployedFrom"
                                 value={formData.datesEmployedFrom}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                         <label className="Verification-label">
@@ -237,6 +254,7 @@ const Verification = () => {
                                 name="datesEmployedTo"
                                 value={formData.datesEmployedTo}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>
@@ -254,6 +272,7 @@ const Verification = () => {
                                 name="employerDatesFrom"
                                 value={formData.employerDatesFrom}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                         <label className="Verification-label">
@@ -264,6 +283,7 @@ const Verification = () => {
                                 name="employerDatesTo"
                                 value={formData.employerDatesTo}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>
@@ -277,6 +297,7 @@ const Verification = () => {
                                 name="positionHeld"
                                 value={formData.positionHeld}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                         <label className="Verification-label">
@@ -287,6 +308,7 @@ const Verification = () => {
                                 name="qualityOfWork"
                                 value={formData.qualityOfWork}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>
@@ -300,6 +322,7 @@ const Verification = () => {
                                 name="attendancePunctuality"
                                 value={formData.attendancePunctuality}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                         <label className="Verification-label">
@@ -310,6 +333,7 @@ const Verification = () => {
                                 name="problemsNoted"
                                 value={formData.problemsNoted}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>
@@ -370,6 +394,7 @@ const Verification = () => {
                                 name="employerTitle"
                                 value={formData.employerTitle}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                         <label className="Verification-label">
@@ -380,6 +405,7 @@ const Verification = () => {
                                 name="employerDate"
                                 value={formData.employerDate}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </div>

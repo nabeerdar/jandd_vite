@@ -100,6 +100,10 @@ const Registered = () => {
                 {/* Job Title */}
                 <h2 className='registered-subheading_h22'>Registered Nurse</h2>
 
+                <p style={{fontStyle:"italic", textAlign: "center", fontSize: "small", color: "grey"}}>
+                    Note: Only apply fill this form if you're applying for this job category. Otherwise, check previous formns (then check next form Registered Nurse or go back to previous forms (Licensed Practical Nurse or Personal Care Assistant or Nurse Assistant I)
+                </p>
+
                 {/* Job Summary */}
                 <h3>Job Summary:</h3>
                 <p>
@@ -144,6 +148,7 @@ const Registered = () => {
                                     name="agreedTo"
                                     value={formData.agreedTo}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <label className="job-label">
@@ -154,6 +159,7 @@ const Registered = () => {
                                     name="acceptedBy"
                                     value={formData.acceptedBy}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                         </div>
@@ -195,6 +201,7 @@ const Registered = () => {
                                     name="date1"
                                     value={formData.date1}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <label className="job-label">
@@ -205,6 +212,7 @@ const Registered = () => {
                                     name="date2"
                                     value={formData.date2}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                         </div>

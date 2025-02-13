@@ -218,18 +218,27 @@ const DetailedFormPersonalInfo = () => {
           
           // const response = await axios.get('/api/get_personal_references');
           const response = await axios.get('https://janddbackend.xyz/get_personal_references');
-          
-          const userPersonalReferences = response.data.references.filter(
+        
+
+          const userPersonalReferences = response.data.personal_references.filter(
             (employer) => employer.user_id === userId
           );
 
-          if (userPersonalReferences && userPersonalReferences.length > 0) {
-            setPersonalReferences(userPersonalReferences);
-          } else {
-            setPersonalReferences([]);
-          }
-          // const data = response.data.references;
-          // setPersonalReferences(data);
+          // if (userPersonalReferences && userPersonalReferences.length > 0) {
+          //   setPersonalReferences(userPersonalReferences);
+          // } else {
+          //   setPersonalReferences([]);
+          // }
+
+          const data = response.data.personal_references;
+
+          console.log("Personal References: ", userPersonalReferences)
+          setPersonalReferences(userPersonalReferences);
+
+          
+
+          
+
         } catch (err) {
           console.error('Error fetching personal references:', err);
           setError('Failed to fetch personal references.');
@@ -829,13 +838,13 @@ const DetailedFormPersonalInfo = () => {
           {professionalKnowledge.map((item) => (
             <tr key={item.category}>
               <td>
-                <input
+                {/* <input
                   type="radio"
                   name="professional-knowledge"
                   value={item.category}
                   checked={selectedCategoryProKnowledge === item.category}
                   onChange={() => handleRadioChangeProKnowledge(item.category)}
-                />{" "}
+                />{" "} */}
                 {item.category}
               </td>
               <td>
