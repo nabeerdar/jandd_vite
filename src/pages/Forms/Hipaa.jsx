@@ -1,20 +1,24 @@
 import React from 'react';
 import './Hipaa.css';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const Hipaa = () => {
 
     const navigate = useNavigate();
 
+    const { id: userIdString } = useParams();
+    const userId = parseInt(userIdString, 10);
+    console.log("userId: ", userId);
+
     const handleBack = () => {
         // Navigate back to the previous page using the navigate hook
-        navigate('/employee');  // This will take the user one step back in history
+        navigate(`/employee/${userId}`);  // This will take the user one step back in history
     };
 
     const handleNext = () => {
-        navigate('/verification');
+        navigate(`/verification/${userId}`);
     };
 
 
@@ -92,6 +96,44 @@ const Hipaa = () => {
         }
       };
 
+    const formatDate = (dateString) => {
+        if (!dateString) return ''; // Handle empty or null dates
+        return dateString.split(' ')[0]; // Extract only the date part (YYYY-MM-DD)
+    };
+
+    useEffect(() => {
+        const fetchHipaaData = async () => {
+            try {
+                
+                // const response = await fetch(`/api/get_hipaa_data`);
+                const response = await fetch(`https://janddbackend.xyz/get_hipaa_data`);
+                
+                if (!response.ok) {
+                    throw new Error('Employee data not found');
+                }
+                const data = await response.json();
+            
+                const hipaaData = data.hipaa_data.find(auth => auth.user_id === userId);
+        
+                if (hipaaData) {
+                    setFormData({
+                        declineVaccination: hipaaData.decline_vaccination,
+                        employeeSignature: hipaaData.employee_signature || "",
+                        date1: formatDate(hipaaData.date1) || "",
+                        hipaaAcknowledgment: hipaaData.hipaa_acknowledgment || "",
+                        hipaaSignature: hipaaData.hipaa_signature || "",
+                        date2: formatDate(hipaaData.date2)  || ""
+                    
+                    });
+                }
+
+            } catch (err) {
+                alert(err);
+            }
+        };
+    
+        fetchHipaaData();
+    }, []);
 
 
     return (

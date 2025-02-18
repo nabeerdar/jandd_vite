@@ -9,6 +9,7 @@ import Authorization from './pages/Forms/Authorization.jsx';
 import HandBook from './pages/Forms/HandBook.jsx'; 
 import Job from './pages/Forms/Job.jsx'; 
 import Verification from './pages/Forms/Verification.jsx'; 
+import Verification2ndPage from './pages/Forms/Verification2ndPage.jsx';
 import Employee from './pages/Forms/Employee.jsx'; 
 import Hipaa from './pages/Forms/Hipaa.jsx'; 
 import Nurse from './pages/Forms/Nurse.jsx'; 
@@ -37,6 +38,7 @@ import StaffFormAuthorization from './Admin/Forms/StaffFormAuthorization.jsx';
 import StaffFormEmployee from './Admin/Forms/StaffFormEmployee.jsx'; 
 import StaffFormHipaa from './Admin/Forms/StaffFormHipaa.jsx'; 
 import StaffFormVerification from './Admin/Forms/StaffFormVerification.jsx';
+import StaffFormVerification2ndPage from './Admin/Forms/StaffFormVerification2ndPage.jsx';
 import StaffFormJob from './Admin/Forms/StaffFormJob.jsx';
 import StaffFormNurse from './Admin/Forms/StaffFormNurse.jsx';
 import StaffFormRegistered from './Admin/Forms/StaffFormRegistered.jsx';
@@ -77,28 +79,30 @@ function App() {
                                 <Footer />
                             </>
                         } />
-                        <Route path="/application2" element={<Application2 />} />
+                        <Route path="/application2/:id" element={<Application2 />} />
                         <Route path="/applicants" element={<DashboardApplicants/>}/>
                         <Route path="/staff-details" element={<StaffDetails/>}/>
                         <Route path="/details-forms/:id" element={<DetailedFormsPersonalInfo />} />
-                        <Route path="/authorization" element={<Authorization />} /> 
+                        <Route path="/authorization/:id" element={<Authorization />} /> 
                         <Route path="/admin-authorization/:id" element={<StaffFormAuthorization />} /> 
                         <Route path="/brochureback" element={<BrochureBack />} /> 
                         <Route path="/brochurefront" element={<BrochureFront />} />
-                        <Route path="/employee" element={<Employee />} />
+                        <Route path="/employee/:id" element={<Employee />} />
                         <Route path="/admin-employee/:id" element={<StaffFormEmployee />} />
-                        <Route path="/handbook" element={<HandBook />} />
+                        <Route path="/handbook/:id" element={<HandBook />} />
                         <Route path="/admin-handbook/:id" element={<StaffFormHandbook />} />
-                        <Route path="/hipaa" element={<Hipaa />} />
+                        <Route path="/hipaa/:id" element={<Hipaa />} />
                         <Route path="/admin-hipaa/:id" element={<StaffFormHipaa />} />
-                        <Route path="/job" element={<Job />} />
+                        <Route path="/job/:id" element={<Job />} />
                         <Route path="/admin-job/:id" element={<StaffFormJob />} />
-                        <Route path="/nurse" element={<Nurse />} />
+                        <Route path="/nurse/:id" element={<Nurse />} />
                         <Route path="/admin-nurse/:id" element={<StaffFormNurse />} />
-                        <Route path="/registered" element={<Registered />} />
+                        <Route path="/registered/:id" element={<Registered />} />
                         <Route path="/admin-registered/:id" element={<StaffFormRegistered />} />
-                        <Route path="/verification" element={<Verification />} />
+                        <Route path="/verification/:id" element={<Verification />} />
+                        <Route path="/verification2ndPage/:id" element={<Verification2ndPage />} />
                         <Route path="/admin-verification/:id" element={<StaffFormVerification />} />
+                        <Route path="/staffFormVerification2ndPage/:id" element={<StaffFormVerification2ndPage />} />
                         <Route path="/about" element={<AboutUs />} />
                         <Route path="/contact-us" element={<ContactUs />} />
                         <Route path="/staff-application" element={<StaffApplication />} />

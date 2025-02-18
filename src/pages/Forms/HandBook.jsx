@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './HandBook.css'; // Import the CSS file for additional styling if needed
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 // HandBook.js
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -10,6 +10,10 @@ import { useState, useEffect } from 'react';
 const HandBook = () => {
 
   const navigate = useNavigate();
+
+  const { id: userIdString } = useParams();
+  const userId = parseInt(userIdString, 10);
+  console.log("userId: ", userId)
 
     const handleBack = () => {
         // Navigate back to the previous page using the navigate hook
@@ -29,14 +33,14 @@ const HandBook = () => {
       representativeDate: ''
   });
 
-  // Handle input change
   const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prevData) => ({
-          ...prevData,
-          [name]: value
-      }));
-  };
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+    }));
+};
+
 
   const authToken = sessionStorage.getItem('token_user');
     if (!authToken) {
@@ -92,6 +96,37 @@ const HandBook = () => {
           console.error('Error submitting the form data:', error);
         }
       };
+
+      useEffect(() => {
+          const fetchEmployeeData = async () => {
+              try {
+                
+                  // const response = await fetch(`/api/get_handbook_data`);
+                  const response = await fetch(`https://janddbackend.xyz/get_handbook_data`);
+                  
+                  if (!response.ok) {
+                      throw new Error('Employee data not found');
+                  }
+                  const data = await response.json();
+                  const employeeData = data.handbook_data.find(auth => auth.user_id === userId);
+                  console.log()
+                  if (employeeData) {
+                      setFormData({
+                        employeeName: employeeData.employee_name || "",
+                        employeeSignature: employeeData.employee_signature || "",
+                        employeeDate: employeeData.employee_date || "",
+                        representativeName: employeeData.representative_name || "",
+                        representativeDate: employeeData.representative_date || "",
+                      });
+                  }
+      
+              } catch (err) {
+                  alert(err);
+              }
+          };
+      
+          fetchEmployeeData();
+      }, []);
 
   return (
     <>
@@ -164,12 +199,21 @@ const HandBook = () => {
                 <label htmlFor="employeeDate" className="Hand-bold date-label">DATE:</label>
                 <input
                     id="employeeDate"
+                    name="representativeDate"
+                    type="date"
+                    className="employee-input date-input"
+                    value={formData.representativeDate}
+                    onChange={handleChange}
+                    
+                />
+                {/* <input
+                    id="employeeDate"
                     name="employeeDate"
                     type="date"
                     className="employee-input date-input"
                     value={formData.employeeDate}
                     onChange={handleChange}
-                />
+                /> */}
             </div>
 
             <div className="signature-row">
@@ -178,19 +222,21 @@ const HandBook = () => {
                     id="representativeName"
                     name="representativeName"
                     type="text"
-                    placeholder="Name"
+                    // placeholder="Name"
                     className="employee-input"
-                    value={formData.representativeName}
-                    onChange={handleChange}
+                    // value={formData.representativeName}
+                    // onChange={handleChange}
+                    disabled
                 />
                 <label htmlFor="representativeDate" className="Hand-bold date-label">DATE:</label>
                 <input
                     id="representativeDate"
                     name="representativeDate"
-                    type="date"
+                    type="text"
                     className="employee-input date-input"
-                    value={formData.representativeDate}
-                    onChange={handleChange}
+                    // value={formData.representativeDate}
+                    // onChange={handleChange}
+                    disabled
                 />
             </div>
 

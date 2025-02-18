@@ -17,6 +17,10 @@ const StaffFormVerification = () => {
         navigate(`/admin-job/${userId}`);
     };
 
+    const handleNextVerificationPage = () => {
+        navigate(`/staffFormVerification2ndPage/${userId}`)
+    }
+
     const [formData, setFormData] = useState({
         applicantName: "",
         phone: "",
@@ -243,21 +247,23 @@ const StaffFormVerification = () => {
                         <label className="Verification-label">
                             Dates Employed (From):
                             <input
-                                type="date"
+                                type="text"
                                 className="Verification-input"
                                 name="employerDatesFrom"
-                                value={formData.employerDatesFrom}
-                                onChange={handleChange}
+                                // value={formData.employerDatesFrom}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
                         <label className="Verification-label">
                             To:
                             <input
-                                type="date"
+                                type="text"
                                 className="Verification-input"
                                 name="employerDatesTo"
-                                value={formData.employerDatesTo}
-                                onChange={handleChange}
+                                // value={formData.employerDatesTo}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
                     </div>
@@ -269,8 +275,9 @@ const StaffFormVerification = () => {
                                 type="text"
                                 className="Verification-input"
                                 name="positionHeld"
-                                value={formData.positionHeld}
-                                onChange={handleChange}
+                                // value={formData.positionHeld}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
                         <label className="Verification-label">
@@ -279,8 +286,9 @@ const StaffFormVerification = () => {
                                 type="text"
                                 className="Verification-input"
                                 name="qualityOfWork"
-                                value={formData.qualityOfWork}
-                                onChange={handleChange}
+                                // value={formData.qualityOfWork}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
                     </div>
@@ -292,8 +300,9 @@ const StaffFormVerification = () => {
                                 type="text"
                                 className="Verification-input"
                                 name="attendancePunctuality"
-                                value={formData.attendancePunctuality}
-                                onChange={handleChange}
+                                // value={formData.attendancePunctuality}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
                         <label className="Verification-label">
@@ -302,8 +311,9 @@ const StaffFormVerification = () => {
                                 type="text"
                                 className="Verification-input"
                                 name="problemsNoted"
-                                value={formData.problemsNoted}
-                                onChange={handleChange}
+                                // value={formData.problemsNoted}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
                     </div>
@@ -311,9 +321,9 @@ const StaffFormVerification = () => {
                     <div className="Verification-form-row">
                         <label className="Verification-label">
                             Eligible for Rehire:
-                            <div className="Verification-radio-group">
+                            {/* <div className="Verification-radio-group">
                                 {formData.eligibleForRehire}
-                            </div>
+                            </div> */}
                         </label>
 
                         <label className="Verification-label">
@@ -321,8 +331,9 @@ const StaffFormVerification = () => {
                             <textarea
                                 className="Verification-input"
                                 name="rehireExplanation"
-                                value={formData.rehireExplanation}
-                                onChange={handleChange}
+                                // value={formData.rehireExplanation}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
                     </div>
@@ -334,8 +345,9 @@ const StaffFormVerification = () => {
                                 type="text"
                                 className="Verification-input signature"
                                 name="employerSignature"
-                                value={formData.employerSignature}
-                                onChange={handleChange}
+                                // value={formData.employerSignature}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
                         <label className="Verification-label">
@@ -344,20 +356,39 @@ const StaffFormVerification = () => {
                                 type="text"
                                 className="Verification-input"
                                 name="employerTitle"
-                                value={formData.employerTitle}
-                                onChange={handleChange}
+                                // value={formData.employerTitle}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
                         <label className="Verification-label">
                             Date:
                             <input
-                                type="date"
+                                type="text"
                                 className="Verification-input"
                                 name="employerDate"
-                                value={formData.employerDate}
-                                onChange={handleChange}
+                                // value={formData.employerDate}
+                                // onChange={handleChange}
+                                disabled
                             />
                         </label>
+                    </div>
+
+                     {/* Submit Button */}
+                     <div className="mt-6">
+                        {/* <button
+                            type="submit"
+                            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                        >
+                            Save
+                        </button> */}
+                        <button
+                            type="button"
+                            onClick={handleNextVerificationPage}
+                            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                        >
+                            Next Verification Page
+                        </button>
                     </div>
 
                    

@@ -1,20 +1,24 @@
 import React from 'react';
 import './Nurse.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Nurse = () => {
 
     const navigate = useNavigate();
 
+    const { id: userIdString } = useParams();
+    const userId = parseInt(userIdString, 10);
+    console.log("userId: ", userId)
+
     const handleBack = () => {
         // Navigate back to the previous page using the navigate hook
-        navigate('/job');  // This will take the user one step back in history
+        navigate(`/job/${userId}`);  // This will take the user one step back in history
     };
 
     const handleNext = () => {
-        navigate('/registered');
+        navigate(`/registered/${userId}`);
     };
 
     const [formData, setFormData] = useState({
@@ -91,6 +95,41 @@ const Nurse = () => {
         }
       };
 
+      useEffect(() => {
+              const fetchJobData = async () => {
+                  try {
+                      
+                      // const response = await fetch(`/api/get_nurse_data`);
+                      const response = await fetch(`https://janddbackend.xyz/get_nurse_data`);
+                      
+                      if (!response.ok) {
+                          throw new Error('Data not found');
+                      }
+                      const data = await response.json();
+                      console.log("data: ", data)
+                      const jobData = data.nurse_data.find(auth => auth.user_id === userId);
+                     
+                      if (jobData) {
+                          setFormData({
+                              agreedTo: jobData.agreed_to || "",  // Use correct field name
+                              acceptedBy: jobData.accepted_by || "",
+                              employee: jobData.employee || "",
+                              employmentSpecialist: jobData.employment_specialist || "",
+                              date1: jobData.date_1 || "",  // Ensure the correct field name is used
+                              date2: jobData.date_2 || ""
+                          });
+                      }
+      
+                  } catch (err) {
+                      alert(err);
+                  }
+              };
+          
+              fetchJobData();
+          }, []);
+      
+          console.log(formData)
+
     return (
         <>
             <div className="Nurse-container">
@@ -142,7 +181,7 @@ const Nurse = () => {
                     <div className="Job-agreement">
                         <div className="job-form-row">
                             <label className="job-label">
-                                AGREED TO:
+                                Employee:
                                 <input
                                     type="text"
                                     className="job-input"
@@ -158,16 +197,16 @@ const Nurse = () => {
                                     type="text"
                                     className="job-input"
                                     name="acceptedBy"
-                                    value={formData.acceptedBy}
-                                    onChange={handleChange}
-                                    required
+                                    // value={formData.acceptedBy}
+                                    // onChange={handleChange}
+                                    disabled
                                 />
                             </label>
                         </div>
 
                         <div className="job-form-row">
                             <label className="job-label">
-                                Employee:
+                                Employee Signature:
                                 <input
                                     required
                                     type="text"
@@ -180,12 +219,13 @@ const Nurse = () => {
                             <label className="job-label">
                                 JDHS Employment Specialist:
                                 <input
-                                    required
+                                    
                                     type="text"
                                     className="job-input signature"
                                     name="employmentSpecialist"
-                                    value={formData.employmentSpecialist}
-                                    onChange={handleChange}
+                                    // value={formData.employmentSpecialist}
+                                    // onChange={handleChange}
+                                    disabled
                                 />
                             </label>
                         </div>
@@ -205,12 +245,12 @@ const Nurse = () => {
                             <label className="job-label">
                                 Date:
                                 <input
-                                    type="date"
+                                    type="text"
                                     className="job-input"
                                     name="date2"
-                                    value={formData.date2}
-                                    onChange={handleChange}
-                                    required
+                                    // value={formData.date2}
+                                    // onChange={handleChange}
+                                    disabled
                                 />
                             </label>
                         </div>
@@ -222,7 +262,7 @@ const Nurse = () => {
                             type="submit"
                             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                         >
-                            Submit
+                            Save
                         </button>
                     </div>
                 </form>

@@ -319,7 +319,7 @@ const StaffFormAuthorization = () => {
                                 <div className="authorization-second-column">
                                     <label>Date:</label>
                                     <input
-                                        type="date"
+                                        type="text"
                                         name="representativeDate"
                                         value={criminalRecord.representativeDate}
                                         onChange={handleCriminalRecordChange}

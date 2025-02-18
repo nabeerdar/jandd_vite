@@ -121,7 +121,7 @@ const Nurse = () => {
                     <div className="Job-agreement">
                         <div className="job-form-row">
                             <label className="job-label">
-                                AGREED TO:
+                                Employee:
                                 <input
                                     type="text"
                                     className="job-input"
@@ -136,15 +136,16 @@ const Nurse = () => {
                                     type="text"
                                     className="job-input"
                                     name="acceptedBy"
-                                    value={formData.acceptedBy}
-                                    onChange={handleChange}
+                                    // value={formData.acceptedBy}
+                                    // onChange={handleChange}
+                                    disabled
                                 />
                             </label>
                         </div>
 
                         <div className="job-form-row">
                             <label className="job-label">
-                                Employee:
+                                Employee Signature:
                                 <input
                                     type="text"
                                     className="job-input signature"
@@ -159,8 +160,9 @@ const Nurse = () => {
                                     type="text"
                                     className="job-input signature"
                                     name="employmentSpecialist"
-                                    value={formData.employmentSpecialist}
-                                    onChange={handleChange}
+                                    // value={formData.employmentSpecialist}
+                                    // onChange={handleChange}
+                                    disabled
                                 />
                             </label>
                         </div>
@@ -179,11 +181,12 @@ const Nurse = () => {
                             <label className="job-label">
                                 Date:
                                 <input
-                                    type="date"
+                                    type="text"
                                     className="job-input"
                                     name="date2"
-                                    value={formData.date2}
-                                    onChange={handleChange}
+                                    // value={formData.date2}
+                                    // onChange={handleChange}
+                                    disabled
                                 />
                             </label>
                         </div>

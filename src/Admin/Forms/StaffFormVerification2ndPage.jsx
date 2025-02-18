@@ -1,10 +1,10 @@
 import React from 'react';
-import './Verification.css';  // Assuming your CSS is in a separate file named Verification.css
+import './staff-form-Verification.css';  // Assuming your CSS is in a separate file named Verification.css
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Verification = () => {
+const StaffFormVerification2ndPage = () => {
 
     const navigate = useNavigate();
 
@@ -14,16 +14,17 @@ const Verification = () => {
 
     const handleBack = () => {
         // Navigate back to the previous page using the navigate hook
-        navigate(`/hipaa/${userId}`);  // This will take the user one step back in history
+        navigate(`/admin-hipaa/${userId}`);  // This will take the user one step back in history
     };
 
     const handleNext = () => {
-        navigate(`/job/${userId}`);
+        navigate(`/admin-job/${userId}`);
     };
 
-    const handleNextVerificationPage = () => {
-        navigate(`/verification2ndPage/${userId}`)
-    }
+    const handleBackVerification = () => {
+        // Navigate back to the previous page using the navigate hook
+        navigate(`/admin-verification/${userId}`);  // This will take the user one step back in history
+    };
 
     const [formData, setFormData] = useState({
         applicantName: "",
@@ -91,8 +92,8 @@ const Verification = () => {
       
         try {
           // Make the POST request
-          // const response = await axios.post('/api/verification', formData, {
-          const response = await axios.post(' https://janddbackend.xyz/verification', formData, {
+        //   const response = await axios.post('http://localhost:5000/verification2ndPage', formData, {
+          const response = await axios.post(' https://janddbackend.xyz/verification2ndPage', formData, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },
@@ -126,7 +127,7 @@ const Verification = () => {
                   try {
                       
                       // const response = await fetch(`/api/get_verification_data`);
-                      const response = await fetch(`https://janddbackend.xyz/get_verification_data`);
+                      const response = await fetch(`https://janddbackend.xyz/get_verification2ndPage_data`);
                       
                       if (!response.ok) {
                           throw new Error('Verification data not found');
@@ -472,18 +473,18 @@ const Verification = () => {
                     {/* Submit Button */}
                     <div className="mt-6">
                         <button
-                            type="submit"
+                            type="button"
+                            onClick={handleBackVerification}
                             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                         >
-                            Save
+                            Back
                         </button>
-                        <button
-                            type="button"
-                            onClick={handleNextVerificationPage}
+                        {/* <button
+                            type="submit"
                             className="ml-8 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                         >
-                            Next Verification Page
-                        </button>
+                            Save
+                        </button> */}
                     </div>
                 </form>
                 
@@ -528,4 +529,4 @@ const Verification = () => {
     );
 }
 
-export default Verification;
+export default StaffFormVerification2ndPage;

@@ -16,11 +16,11 @@ const Authorization = () => {
 
     const handleBack = () => {
         // Navigate back to the previous page using the navigate hook
-        navigate('/application2');  // This will take the user one step back in history
+        navigate(`/application2/${userId}`);  // This will take the user one step back in history
     };
     const handleNext = () => {
         // Navigate back to the previous page using the navigate hook
-        navigate('/employee');  // This will take the user one step back in history
+        navigate(`/employee/${userId}`);  // This will take the user one step back in history
     };
 
     const [formData, setFormData] = useState({
@@ -136,6 +136,58 @@ const Authorization = () => {
         console.log('formData:', criminalRecord);
     }, [criminalRecord]);
 
+    useEffect(() => {
+            const getData = async () => {
+                try {
+                    
+                    // const response = await fetch('/api/get_authorization_and_criminal_data');
+                    const response = await fetch('https://janddbackend.xyz/get_authorization_and_criminal_data');
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch data');
+                    }
+                    const data = await response.json();
+                    console.log(data);
+                    // Find the data for the current user (based on userId)
+                    const staffData = data.staff_authorization.find(auth => auth.user_id === userId);
+                    const criminalData = data.criminal_background.find(cb => cb.user_id === userId);
+    
+                    // Set the state with the fetched data
+                    if (staffData) {
+                        setFormData({
+                            firstName: staffData.first_name,
+                            middleName: staffData.middle_name,
+                            lastName: staffData.last_name,
+                            dateOfBirth: staffData.date_of_birth,
+                            ssn: staffData.ssn,
+                            driversLicenseNumber: staffData.drivers_license_number,
+                            stateIssued: staffData.state_issued,
+                            formerNames: staffData.former_names,
+                            signature: staffData.signature,
+                            signatureDate: staffData.signature_date
+                        });
+                    }
+    
+                    if (criminalData) {
+                        setCriminalRecord({
+                            conviction: criminalData.conviction,
+                            explanation: criminalData.details, // assuming "details" is the explanation field
+                            employeeSignature: criminalData.employee_signature,
+                            employeeSignatureDate: criminalData.signature_date,
+                            representative: criminalData.representative_signature,
+                            representativeDate: criminalData.representative_date
+                        });
+                    }
+                } catch (error) {
+                    setError('Error fetching data');
+                    console.error('Error:', error);
+                } finally {
+                    setLoading(false);
+                }
+            };
+    
+            getData();
+        }, []);  // Re-fetch when userId changes
+
     return (
         <>
             <div className="authorization-second-form">
@@ -199,12 +251,13 @@ const Authorization = () => {
                                     />
                                 </div>
                                 <div className="authorization-second-column">
-                                    <label>Social Security Number:</label>
+                                    <label>Social Security Number (last 4 digits):</label>
                                     <input
                                         type="text"
                                         name="ssn"
                                         value={formData.ssn}
                                         onChange={handleChange}
+                                        maxLength="4"
                                         required
                                     />
                                 </div>
@@ -214,12 +267,13 @@ const Authorization = () => {
                         <div className="authorization-second-row">
                             <div className="authorization-second-row-horizontal">
                                 <div className="authorization-second-column">
-                                    <label>Driver's License Number:</label>
+                                    <label>Driver's License Number (last 4 digits):</label>
                                     <input
                                         type="text"
                                         name="driversLicenseNumber"
                                         value={formData.driversLicenseNumber}
                                         onChange={handleChange}
+                                        maxLength="4"
                                         required
                                     />
                                 </div>
@@ -339,19 +393,19 @@ const Authorization = () => {
                                     <input
                                         type="text"
                                         name="representative"
-                                        value={criminalRecord.representative}
-                                        onChange={handleCriminalRecordChange}
-                                        required
+                                        // value={criminalRecord.representative}
+                                        // onChange={handleCriminalRecordChange}
+                                        disabled
                                     />
                                 </div>
                                 <div className="authorization-second-column">
                                     <label>Date:</label>
                                     <input
-                                        type="date"
+                                        type="text"
                                         name="representativeDate"
-                                        value={criminalRecord.representativeDate}
-                                        onChange={handleCriminalRecordChange}
-                                        required
+                                        // value={criminalRecord.representativeDate}
+                                        // onChange={handleCriminalRecordChange}
+                                        disabled
                                     />
                                 </div>
                             </div>
@@ -363,7 +417,7 @@ const Authorization = () => {
                                 type="submit"
                                 className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                             >
-                                Submit
+                                Save
                             </button>
                         </div>
                     </form>

@@ -141,11 +141,12 @@ const StaffFormHandBook = () => {
                 <label htmlFor="employeeDate" className="Hand-bold date-label">DATE:</label>
                 <input
                     id="employeeDate"
-                    name="employeeDate"
+                    name="representativeDate"
                     type="date"
                     className="employee-input date-input"
-                    value={formData.employeeDate}
+                    value={formData.representativeDate}
                     onChange={handleChange}
+                    
                 />
             </div>
 
@@ -155,19 +156,21 @@ const StaffFormHandBook = () => {
                     id="representativeName"
                     name="representativeName"
                     type="text"
-                    placeholder="Name"
+                    // placeholder="Name"
                     className="employee-input"
-                    value={formData.representativeName}
-                    onChange={handleChange}
+                    // value={formData.representativeName}
+                    // onChange={handleChange}
+                    disabled
                 />
                 <label htmlFor="representativeDate" className="Hand-bold date-label">DATE:</label>
                 <input
                     id="representativeDate"
                     name="representativeDate"
-                    type="date"
+                    type="text"
                     className="employee-input date-input"
-                    value={formData.representativeDate}
-                    onChange={handleChange}
+                    // value={formData.representativeDate}
+                    // onChange={handleChange}
+                    disabled
                 />
             </div>
 

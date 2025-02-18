@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,6 +18,40 @@ const Login = () => {
       [name]: value,
     }));
   };
+  const [dataPersonal, setDataPersonal] = useState([]);
+
+  // useEffect(() => {
+
+  //   const fetchData = async () => {
+  //     console.log('Fetching data...');
+  //     try {
+        
+  //       // const response = await axios.get('/api/get_personal_info');
+  //       const response = await axios.get('https://janddbackend.xyz/get_personal_info');
+  //       console.log("API Response:", response.data);
+  //       setDataPersonal(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching patient applications:', error);
+  //       setError('Failed to fetch data. Please try again later.');
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []); 
+
+  const decodeToken = (token) => {
+    try {
+      const base64Url = token.split(".")[1]; // Extract payload (2nd part of JWT)
+      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/"); // Convert to Base64 format
+      return JSON.parse(atob(base64)); // Decode and parse JSON
+    } catch (error) {
+      console.error("Invalid token:", error);
+      return null;
+    }
+  };
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -44,8 +79,21 @@ const Login = () => {
       sessionStorage.setItem('token_user', token_user);
 
       toast.success('Login successful');
+
+      // Extract user_id from token
+      const decodedToken = decodeToken(token_user);
+      console.log("decoded token: ", decodedToken)
+      const userId = decodedToken?.sub?.id; // Extract user_id safely
+
       setTimeout(() => {
-        navigate('/application2'); // Redirect to dashboard or any other page
+
+        if (userId) {
+          navigate(`/application2/${userId}`);
+        } else {
+          console.error("User ID not found in token.");
+        }
+
+        //navigate('/application2'); // Redirect to dashboard or any other page
       }, 1000);
     } catch (error) {
       toast.error(error.message || 'No response from server');

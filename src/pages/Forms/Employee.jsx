@@ -11,11 +11,11 @@ const Employee = () => {
     console.log("userId: ", userId);
   
     const handleBack = () => {
-      navigate('/authorization');
+      navigate(`/authorization/${userId}`);
     };
   
     const handleNext = () => {
-      navigate('/hipaa');
+      navigate(`/hipaa/${userId}`);
     };
 
   
@@ -96,6 +96,44 @@ const Employee = () => {
         }
       };
 
+      
+
+      useEffect(() => {
+              const fetchEmployeeData = async () => {
+                  try {
+      
+                      const response = await fetch(`https://janddbackend.xyz/get_employee_form_data`);
+                      
+                      if (!response.ok) {
+                          throw new Error('Employee data not found');
+                      }
+                      const data = await response.json();
+                      console.log(data)
+                      const employeeData = data.employee_data.find(auth => auth.user_id === userId);
+                      console.log()
+                      if (employeeData) {
+                          setFormData({
+                              insuranceCompany: employeeData.insurance_company || "",
+                              claimsRepresentativePhone: employeeData.claims_representative_phone || "",
+                              policyNumber: employeeData.policy_number || "",
+                              policyExpirationDate: employeeData.policy_expiration_date || "",
+                              jdRepresentative: employeeData.jd_representative || "",
+                              coverageVerificationDate: employeeData.coverage_verification_date || "",
+                              employeeName: employeeData.employee_name || "",
+                              employeeSignature: employeeData.employee_signature || "",
+                              employeeSignatureDate: employeeData.employee_signature_date || "",
+                              jdRepName: employeeData.jd_rep_name || "",
+                              jdRepSignatureDate: employeeData.jd_rep_signature_date || "",
+                          });
+                      }
+      
+                  } catch (err) {
+                      alert(err);
+                  }
+              };
+          
+              fetchEmployeeData();
+        }, []);
   
     return (
       <>
@@ -158,22 +196,23 @@ const Employee = () => {
                   J and D Representative:
                   <input
                     type="text"
-                    required
+                    
                     className="Employee-input signature"
                     name="jdRepresentative"
-                    value={formData.jdRepresentative}
-                    onChange={handleChange}
+                    // value={formData.jdRepresentative}
+                    // onChange={handleChange}
+                    disabled
                   />
                 </label>
                 <label className="Employee-label">
                   Coverage Verification Date:
                   <input
-                    type="date"
+                    type="text"
                     className="Employee-input"
                     name="coverageVerificationDate"
-                    value={formData.coverageVerificationDate}
-                    onChange={handleChange}
-                    required
+                    // value={formData.coverageVerificationDate}
+                    // onChange={handleChange}
+                    disabled
                   />
                 </label>
               </div>
@@ -231,26 +270,28 @@ const Employee = () => {
                   </label>
                 </div>
                 <div className="Employee-form-row">
+                 
                   <label className="Employee-label">
                     J and D Representative:
+                    
                     <input
-                      required
                       type="text"
-                      className="Employee-input signature"
+                      className="Employee-input"
                       name="jdRepName"
-                      value={formData.jdRepName}
-                      onChange={handleChange}
+                      // value={formData.jdRepSignatureDate}
+                      // onChange={handleChange}
+                      disabled
                     />
                   </label>
                   <label className="Employee-label">
                     Date:
                     <input
-                      type="date"
+                      type="text"
                       className="Employee-input"
                       name="jdRepSignatureDate"
-                      value={formData.jdRepSignatureDate}
-                      onChange={handleChange}
-                      required
+                      // value={formData.jdRepSignatureDate}
+                      // onChange={handleChange}
+                      disabled
                     />
                   </label>
                 </div>
@@ -263,7 +304,7 @@ const Employee = () => {
                     type="submit"
                     className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                 >
-                    Submit
+                    Save
                 </button>
             </div>
           </form>
