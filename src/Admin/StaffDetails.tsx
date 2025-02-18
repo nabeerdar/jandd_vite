@@ -16,8 +16,6 @@ const StaffDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  //nothing
-  const uE = 0;
 
   if (role !== 'admin') {
     navigate('/');
