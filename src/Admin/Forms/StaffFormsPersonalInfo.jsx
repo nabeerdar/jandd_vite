@@ -768,6 +768,22 @@ const DetailedFormPersonalInfo = () => {
                   cols="10"
                   value={row.from_date}
                   onChange={(e) => handleInputFormerEmp(index, "from", e.target.value)}
+                  style={{
+                    width: "100px",
+                    height: "30px",
+                    border: "1px solid #ccc",
+                    padding: "5px",
+                    borderRadius: "5px",
+                    fontSize: "14px",
+                    fontFamily: "Arial, sans-serif",
+                    resize: "none",
+                    outline: "none",
+                    textAlign: "left",
+                    overflow: "hidden",    // Prevents scrollbar appearance
+                    appearance: "none",    // Removes default styling
+                    MozAppearance: "none", // Fix for Firefox
+                    WebkitAppearance: "none" // Fix for Safari
+                  }}
                 />{" "}
                 <br />
                 To:{" "}
@@ -776,6 +792,22 @@ const DetailedFormPersonalInfo = () => {
                   cols="10"
                   value={row.to_date}
                   onChange={(e) => handleInputFormerEmp(index, "to", e.target.value)}
+                  style={{
+                    width: "100px",
+                    height: "30px",
+                    border: "1px solid #ccc",
+                    padding: "5px",
+                    borderRadius: "5px",
+                    fontSize: "14px",
+                    fontFamily: "Arial, sans-serif",
+                    resize: "none",
+                    outline: "none",
+                    textAlign: "left",
+                    overflow: "hidden",    // Prevents scrollbar appearance
+                    appearance: "none",    // Removes default styling
+                    MozAppearance: "none", // Fix for Firefox
+                    WebkitAppearance: "none" // Fix for Safari
+                  }}
                 />
               </td>
               <td>

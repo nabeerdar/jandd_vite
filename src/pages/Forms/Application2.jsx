@@ -481,52 +481,45 @@ const Application2 = () => {
 
     useEffect(() => {
       const fetchProfessionalKnowledge = async () => {
-       
         try {
-          
-          // const response = await axios.get("/api/get_education_info");
           const response = await axios.get('https://janddbackend.xyz/get_professional_knowledge');
-         
     
           const userProfessionalKnowledge = response.data.professional_knowledge.filter(
             (knowledge) => knowledge.user_id === userId // Replace with actual user ID logic
           );
     
-       
-          if (userProfessionalKnowledge && userProfessionalKnowledge.length > 0) {
+          if (userProfessionalKnowledge.length > 0) {
             const updatedProfessionalKnowledge = userProfessionalKnowledge.map((knowledge) => ({
-              ...knowledge,  // Spread the existing properties
-    //             yearsOfExperience: knowledge.years_of_experience || "",  // Rename years_known to yearsOfExperience
+              category: knowledge.category || "",  // Ensure category matches the state key
+              yearsOfExperience: knowledge.years_of_experience || "",  // Match the API key
+              specifics: knowledge.specifics || "",  
             }));
     
+            // Merge with default data to keep missing categories
             setProfessionalKnowledge((prevProfessionalKnowledge) =>
               prevProfessionalKnowledge.map((defaultEntry) => {
                 const matchedEntry = updatedProfessionalKnowledge.find(
-                  (entry) => entry.level === defaultEntry.level
+                  (entry) => entry.category === defaultEntry.category
                 );
-                return matchedEntry || defaultEntry; // Use the matched entry or keep the default
+                return matchedEntry || defaultEntry; // Keep default values if no match
               })
             );
           }
         } catch (err) {
-          console.error("Error fetching education data:", err);
-          setError("Failed to fetch education data.");
-        } 
+          console.error("Error fetching professional knowledge data:", err);
+          setError("Failed to fetch professional knowledge data.");
+        }
       };
     
       fetchProfessionalKnowledge();
-
-      
-    }, []); // Run once on component mount
-
-
+    }, []); // Runs once when component mounts
     
-    // ----------------------------- Previous Code messing up other rows -----------------------------
+    // ----------------------------- FIXED INPUT HANDLER -----------------------------
     const handleInputProKnowledge = (category, field, value) => {
       setProfessionalKnowledge((prevData) =>
         prevData.map((item) =>
           item.category === category
-            ? { ...item, [field]: value }
+            ? { ...item, [field]: value }  // Only update the changed field
             : item
         )
       );
@@ -993,6 +986,22 @@ const Application2 = () => {
                   cols="10"
                   value={row.from}
                   onChange={(e) => handleInputFormerEmp(index, "from", e.target.value)}
+                  style={{
+                    width: "100px",
+                    height: "30px",
+                    border: "1px solid #ccc",
+                    padding: "5px",
+                    borderRadius: "5px",
+                    fontSize: "14px",
+                    fontFamily: "Arial, sans-serif",
+                    resize: "none",
+                    outline: "none",
+                    textAlign: "left",
+                    overflow: "hidden",    // Prevents scrollbar appearance
+                    appearance: "none",    // Removes default styling
+                    MozAppearance: "none", // Fix for Firefox
+                    WebkitAppearance: "none" // Fix for Safari
+                  }}
                 />{" "}
                 <br />
                 To:{" "}
@@ -1001,6 +1010,22 @@ const Application2 = () => {
                   cols="10"
                   value={row.to}
                   onChange={(e) => handleInputFormerEmp(index, "to", e.target.value)}
+                  style={{
+                    width: "100px",
+                    height: "30px",
+                    border: "1px solid #ccc",
+                    padding: "5px",
+                    borderRadius: "5px",
+                    fontSize: "14px",
+                    fontFamily: "Arial, sans-serif",
+                    resize: "none",
+                    outline: "none",
+                    textAlign: "left",
+                    overflow: "hidden",    // Prevents scrollbar appearance
+                    appearance: "none",    // Removes default styling
+                    MozAppearance: "none", // Fix for Firefox
+                    WebkitAppearance: "none" // Fix for Safari
+                  }}
                 />
               </td>
               <td>
