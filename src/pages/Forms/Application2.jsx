@@ -50,7 +50,7 @@ const Application2 = () => {
       }
 
       const isProfessionalKnowledgeValid = professionalKnowledge.some(
-        (row) => row.years_of_experience.trim() !== "" && row.specifics.trim() !== ""
+        (row) => row.yearsOfExperience.trim() !== "" && row.specifics.trim() !== ""
       );
 
       if (!isProfessionalKnowledgeValid) {
@@ -193,14 +193,24 @@ const Application2 = () => {
             
           }, []); // Run once on component mount
 
+    
+    // ----------------------------- Previous Code messing up other rows ----------------------------------
+    // const handleInputEduCompleted = (index, field, value) => {
+    //   setEducationData((prevData) => {
+    //     const updatedData = [...prevData];
+    //     updatedData[index][field] = value;
+    //     return updatedData;
+    //   });
+    // };
+    //----------------------------------------------------------------------------------------------------
     const handleInputEduCompleted = (index, field, value) => {
-      setEducationData((prevData) => {
-        const updatedData = [...prevData];
-        updatedData[index][field] = value;
-        return updatedData;
-      });
+      setEducationData((prevData) =>
+        prevData.map((education, i) =>
+          i === index ? { ...education, [field]: value } : education
+        )
+      );
     };
-
+    
   
     const [formerEmployers, setFormerEmployers] = useState([
       { from: "", to: "", employer: "", phone: "", position: "", salary: "", reason: "" },
@@ -208,57 +218,117 @@ const Application2 = () => {
       { from: "", to: "", employer: "", phone: "", position: "", salary: "", reason: "" },
     ]);
     console.log(" Former Employees: ", formerEmployers)
-
-     useEffect(() => {
-          const fetchEmployerData = async () => {
-            try {
+    //-------------------------------Previous Code not fetching Former Employer Rows---------------------------
+    //  useEffect(() => {
+    //       const fetchEmployerData = async () => {
+    //         try {
               
-                // const response = await axios.get("/api/get_former_employers");
-                const response = await axios.get("https://janddbackend.xyz/get_former_employers");
+    //             // const response = await axios.get("/api/get_former_employers");
+    //             const response = await axios.get("https://janddbackend.xyz/get_former_employers");
         
-                // Filter records for the current user
-                //   const userEmployerData = response.data.former_employers.filter(
-                //     (employer) => employer.user_id === userId
-                //   );
-                const userEmployerData = response.data.former_employers
-                    .filter((employer) => employer.user_id === userId)
-                    .map((employer) => ({
-                        from: employer.from_date,  // Renaming from_date -> from
-                        to: employer.to_date,      // Renaming to_date -> to
-                        employer: employer.employer || "",
-                        phone: employer.phone || "",
-                        position: employer.position || "",
-                        salary: employer.salary || "",
-                        reason: employer.reason || "",
-                }));
+    //             // Filter records for the current user
+    //             //   const userEmployerData = response.data.former_employers.filter(
+    //             //     (employer) => employer.user_id === userId
+    //             //   );
+    //             const userEmployerData = response.data.former_employers
+    //                 .filter((employer) => employer.user_id === userId)
+    //                 .map((employer) => ({
+    //                     from: employer.from_date,  // Renaming from_date -> from
+    //                     to: employer.to_date,      // Renaming to_date -> to
+    //                     employer: employer.employer || "",
+    //                     phone: employer.phone || "",
+    //                     position: employer.position || "",
+    //                     salary: employer.salary || "",
+    //                     reason: employer.reason || "",
+    //             }));
               
-                if (userEmployerData && userEmployerData.length > 0) {
-                    setFormerEmployers(userEmployerData);
+    //             if (userEmployerData && userEmployerData.length > 0) {
+    //                 setFormerEmployers(userEmployerData);
                     
-                } else {
-                    setFormerEmployers([]);
-                }
-            } 
-            catch (err) {
-                console.error("Error fetching former employer data:", err);
-                setError("Failed to fetch former employer data.");
-            } 
-            finally {
-                setLoading(false);
-            }
-        };
+    //             } else {
+    //                 setFormerEmployers([]);
+    //             }
+    //         } 
+    //         catch (err) {
+    //             console.error("Error fetching former employer data:", err);
+    //             setError("Failed to fetch former employer data.");
+    //         } 
+    //         finally {
+    //             setLoading(false);
+    //         }
+    //     };
     
-        fetchEmployerData();
-    }, []);
-    console.log("Changed Former Employees: ", formerEmployers)
-  
+    //     fetchEmployerData();
+    // }, []);
+    // console.log("Changed Former Employees: ", formerEmployers)
+
+    //--------------------------------------------------------------------------------------------------
+
+    useEffect(() => {
+      const fetchEmployerData = async () => {
+       
+        try {
+          
+          // const response = await axios.get("/api/get_education_info");
+          const response = await axios.get("https://janddbackend.xyz/get_former_employers");
+         
+    
+          const userEmployerData = response.data.former_employers.filter(
+            (employer) => employer.user_id === userId // Replace with actual user ID logic
+          );
+       
+          if (userEmployerData && userEmployerData.length > 0) {
+            const updatedEmployerData = userEmployerData.map((employer) => ({
+              from: employer.from_date,  // Renaming from_date -> from
+                to: employer.to_date,      // Renaming to_date -> to
+                employer: employer.employer || "",
+                phone: employer.phone || "",
+                position: employer.position || "",
+                salary: employer.salary || "",
+                reason: employer.reason || "",
+            }));
+    
+            setFormerEmployers((prevEmployerData) =>
+              prevEmployerData.map((defaultEntry) => {
+                const matchedEntry = updatedEmployerData.find(
+                  (entry) => entry.level === defaultEntry.level
+                );
+                return matchedEntry || defaultEntry; // Use the matched entry or keep the default
+              })
+            );
+          }
+        } catch (err) {
+          console.error("Error fetching former employer data:", err);
+          setError("Failed to fetch fomer_employer data.");
+        } 
+      };
+    
+      fetchEmployerData();
+
+      
+    }, []); // Run once on component mount
+
+   
+    
+    // ----------------------------- Previous Code messing up other rows ----------------------------------
+    // const handleInputFormerEmp = (index, field, value) => {
+    //   setFormerEmployers((prevData) => {
+    //     const updatedData = [...prevData];
+    //     updatedData[index][field] = value;
+    //     return updatedData;
+    //   });
+    // };
+    //---------------------------------------------------------------------------------------------------
+
     const handleInputFormerEmp = (index, field, value) => {
-      setFormerEmployers((prevData) => {
-        const updatedData = [...prevData];
-        updatedData[index][field] = value;
-        return updatedData;
-      });
+      setFormerEmployers((prevData) =>
+        prevData.map((employer, i) =>
+          i === index ? { ...employer, [field]: value } : employer
+        )
+      );
     };
+    
+  
 
 
  
@@ -267,46 +337,101 @@ const Application2 = () => {
       { name: "", address: "", phone: "", business: "", yearsKnown: "" },
       { name: "", address: "", phone: "", business: "", yearsKnown: "" },
     ]);
+    // --------------------- Previous Fetch Personal References Not gettings Rows with no data in db ---------------------------
+    // useEffect(() => {
+    //     const fetchPersonalReferences = async () => {
+    //       try {
+    //         const response = await axios.get('https://janddbackend.xyz/get_personal_references');
+          
+    //         // Filter records for the current user
+    //         const userPersonalReferences = response.data.personal_references
+    //           .filter((reference) => reference.user_id === userId)
+    //           .map((reference) => ({
+    //             name: reference.name || "",
+    //             address: reference.address || "",
+    //             phone: reference.phone || "",
+    //             business: reference.business || "",
+    //             yearsKnown: reference.years_known || "",  // Renaming years_known -> yearsKnown
+    //           }));
+      
+    //         setPersonalReferences(userPersonalReferences.length > 0 ? userPersonalReferences : []);
+          
+    //       } catch (err) {
+    //         console.error('Error fetching personal references:', err);
+    //         setError('Failed to fetch personal references.');
+    //       } finally {
+    //         setLoading(false);
+    //       }
+    //     };
+      
+    //     fetchPersonalReferences();
+    //   }, []);
+      
+    //   console.log("Personal References: ", personalReferences);
+
+    //--------------------------------------------------------------------------------------------------
 
     useEffect(() => {
-        const fetchPersonalReferences = async () => {
-          try {
-            const response = await axios.get('https://janddbackend.xyz/get_personal_references');
+      const fetchPersonalReferences = async () => {
+       
+        try {
           
-            // Filter records for the current user
-            const userPersonalReferences = response.data.personal_references
-              .filter((reference) => reference.user_id === userId)
-              .map((reference) => ({
+          // const response = await axios.get("/api/get_education_info");
+          const response = await axios.get('https://janddbackend.xyz/get_personal_references');
+         
+    
+          const userPersonalReferences = response.data.personal_references.filter(
+            (reference) => reference.user_id === userId // Replace with actual user ID logic
+          );
+    
+       
+          if (userPersonalReferences && userPersonalReferences.length > 0) {
+            const updatedPersonalReferences = userPersonalReferences.map((reference) => ({
                 name: reference.name || "",
                 address: reference.address || "",
                 phone: reference.phone || "",
                 business: reference.business || "",
                 yearsKnown: reference.years_known || "",  // Renaming years_known -> yearsKnown
-              }));
-      
-            setPersonalReferences(userPersonalReferences.length > 0 ? userPersonalReferences : []);
-          
-          } catch (err) {
-            console.error('Error fetching personal references:', err);
-            setError('Failed to fetch personal references.');
-          } finally {
-            setLoading(false);
+            }));
+    
+            setPersonalReferences((prevPersonalReferences) =>
+              prevPersonalReferences.map((defaultEntry) => {
+                const matchedEntry = updatedPersonalReferences.find(
+                  (entry) => entry.level === defaultEntry.level
+                );
+                return matchedEntry || defaultEntry; // Use the matched entry or keep the default
+              })
+            );
           }
-        };
+        } catch (err) {
+          console.error("Error fetching education data:", err);
+          setError("Failed to fetch education data.");
+        } 
+      };
+    
+      fetchPersonalReferences();
+
       
-        fetchPersonalReferences();
-      }, []);
+    }, []); // Run once on component mount
       
-      console.log("Personal References: ", personalReferences);
-      
-  
+    // ----------------------------- Previous Code messing up other rows ----------------------------------
+    // const handleInputPersonalRef = (index, field, value) => {
+    //   setPersonalReferences((prevData) => {
+    //     const updatedData = [...prevData];
+    //     updatedData[index][field] = value;
+    //     return updatedData;
+    //   });
+    // };
+    //-----------------------------------------------------------------------------------------------------
+
     const handleInputPersonalRef = (index, field, value) => {
-      setPersonalReferences((prevData) => {
-        const updatedData = [...prevData];
-        updatedData[index][field] = value;
-        return updatedData;
-      });
+      setPersonalReferences((prevData) =>
+        prevData.map((ref, i) =>
+          i === index ? { ...ref, [field]: value } : ref
+        )
+      );
     };
+    
 
     const [selectedCategoryProKnowledge, setSelectedCategoryProKnowledge] = useState(null);
     const [professionalKnowledge, setProfessionalKnowledge] = useState([
@@ -321,35 +446,82 @@ const Application2 = () => {
       { category: "Other", yearsOfExperience: "", specifics: "" },
     ]);
 
+    // ------------------- Previous Professional Knowledge isn't fetching rows with no record in db ------------------
+
+    // useEffect(() => {
+    //     const fetchProfessionalKnowledge = async () => {
+    //       try {
+    //         // const response = await axios.get('/api/get_professional_knowledge');
+    //         const response = await axios.get('https://janddbackend.xyz/get_professional_knowledge');
+    //         console.log("response: ", response);
+      
+    //         const userProfessionalKnowledge = response.data.professional_knowledge
+    //           .filter((knowledge) => knowledge.user_id === userId)
+    //           .map((knowledge) => ({
+    //             ...knowledge,  // Spread the existing properties
+    //             yearsOfExperience: knowledge.years_of_experience || "",  // Rename years_known to yearsOfExperience
+    //           }));
+      
+    //         if (userProfessionalKnowledge && userProfessionalKnowledge.length > 0) {
+    //           setProfessionalKnowledge(userProfessionalKnowledge);
+    //         } else {
+    //           setProfessionalKnowledge([]);
+    //         }
+      
+    //       } catch (err) {
+    //         console.error("Error fetching professional knowledge data:", err);
+    //         setError("Failed to fetch professional knowledge data.");
+    //       }
+    //     };
+      
+    //     fetchProfessionalKnowledge();
+    //   }, []); // Run once on component mount
+
+    // --------------------------------------------------------------------------------------------------
+
     useEffect(() => {
-        const fetchProfessionalKnowledge = async () => {
-          try {
-            // const response = await axios.get('/api/get_professional_knowledge');
-            const response = await axios.get('https://janddbackend.xyz/get_professional_knowledge');
-            console.log("response: ", response);
-      
-            const userProfessionalKnowledge = response.data.professional_knowledge
-              .filter((knowledge) => knowledge.user_id === userId)
-              .map((knowledge) => ({
-                ...knowledge,  // Spread the existing properties
-                yearsOfExperience: knowledge.years_known || "",  // Rename years_known to yearsOfExperience
-              }));
-      
-            if (userProfessionalKnowledge && userProfessionalKnowledge.length > 0) {
-              setProfessionalKnowledge(userProfessionalKnowledge);
-            } else {
-              setProfessionalKnowledge([]);
-            }
-      
-          } catch (err) {
-            console.error("Error fetching professional knowledge data:", err);
-            setError("Failed to fetch professional knowledge data.");
+      const fetchProfessionalKnowledge = async () => {
+       
+        try {
+          
+          // const response = await axios.get("/api/get_education_info");
+          const response = await axios.get('https://janddbackend.xyz/get_professional_knowledge');
+         
+    
+          const userProfessionalKnowledge = response.data.professional_knowledge.filter(
+            (knowledge) => knowledge.user_id === userId // Replace with actual user ID logic
+          );
+    
+       
+          if (userProfessionalKnowledge && userProfessionalKnowledge.length > 0) {
+            const updatedProfessionalKnowledge = userProfessionalKnowledge.map((knowledge) => ({
+              ...knowledge,  // Spread the existing properties
+    //             yearsOfExperience: knowledge.years_of_experience || "",  // Rename years_known to yearsOfExperience
+            }));
+    
+            setProfessionalKnowledge((prevProfessionalKnowledge) =>
+              prevProfessionalKnowledge.map((defaultEntry) => {
+                const matchedEntry = updatedProfessionalKnowledge.find(
+                  (entry) => entry.level === defaultEntry.level
+                );
+                return matchedEntry || defaultEntry; // Use the matched entry or keep the default
+              })
+            );
           }
-        };
+        } catch (err) {
+          console.error("Error fetching education data:", err);
+          setError("Failed to fetch education data.");
+        } 
+      };
+    
+      fetchProfessionalKnowledge();
+
       
-        fetchProfessionalKnowledge();
-      }, []); // Run once on component mount
-      
+    }, []); // Run once on component mount
+
+
+    
+    // ----------------------------- Previous Code messing up other rows -----------------------------
     const handleInputProKnowledge = (category, field, value) => {
       setProfessionalKnowledge((prevData) =>
         prevData.map((item) =>
@@ -359,6 +531,19 @@ const Application2 = () => {
         )
       );
     };
+    //------------------------------------------------------------------------------------------------
+
+    // const handleInputProKnowledge = (category, field, value) => {
+      // const handleInputProKnowledge = (index, field, value) => {
+      //   setProfessionalKnowledge((prevData) =>
+      //     prevData.map((item, i) =>
+      //       i === index ? { ...item, [field]: value } : item
+      //     )
+      //   );
+      // };
+      
+    
+    
 
     const handleRadioChangeProKnowledge = (category) => {
       setProfessionalKnowledge((prevData) =>
@@ -894,7 +1079,7 @@ const Application2 = () => {
                 <textarea
                   rows="1"
                   cols="10"
-                  value={item.years_of_experience}
+                  value={item.yearsOfExperience}
                   // disabled={selectedCategoryProKnowledge !== item.category}
                   onChange={(e) =>
                     handleInputProKnowledge(item.category, "yearsOfExperience", e.target.value)
@@ -981,6 +1166,8 @@ const Application2 = () => {
             </tr>
           ))}
         </tbody>
+
+      
       </table>
 
 
@@ -1120,7 +1307,7 @@ const Application2 = () => {
                     // disabled={!isBothTermsChecked} // Disabled unless both checkboxes are checked
 
                   >
-                    Submit
+                    Save
                   </button>
                 </div>
                     </>
