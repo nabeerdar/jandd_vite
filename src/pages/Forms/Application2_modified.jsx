@@ -50,7 +50,7 @@ const Application2 = () => {
       }
 
       const isProfessionalKnowledgeValid = professionalKnowledge.some(
-        (row) => row.years_of_experience.trim() !== "" && row.specifics.trim() !== ""
+        (row) => row.yearsOfExperience.trim() !== "" && row.specifics.trim() !== ""
       );
 
       if (!isProfessionalKnowledgeValid) {
@@ -332,7 +332,7 @@ const Application2 = () => {
               .filter((knowledge) => knowledge.user_id === userId)
               .map((knowledge) => ({
                 ...knowledge,  // Spread the existing properties
-                yearsOfExperience: knowledge.years_known || "",  // Rename years_known to yearsOfExperience
+                yearsOfExperience: knowledge.years_of_experience || "",  // Rename years_known to yearsOfExperience
               }));
       
             if (userProfessionalKnowledge && userProfessionalKnowledge.length > 0) {
@@ -894,7 +894,7 @@ const Application2 = () => {
                 <textarea
                   rows="1"
                   cols="10"
-                  value={item.years_of_experience}
+                  value={item.yearsOfExperience}
                   // disabled={selectedCategoryProKnowledge !== item.category}
                   onChange={(e) =>
                     handleInputProKnowledge(item.category, "yearsOfExperience", e.target.value)
@@ -1120,7 +1120,7 @@ const Application2 = () => {
                     // disabled={!isBothTermsChecked} // Disabled unless both checkboxes are checked
 
                   >
-                    Submit
+                    Save
                   </button>
                 </div>
                     </>
