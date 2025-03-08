@@ -187,7 +187,7 @@ const StaffFormVerification = () => {
                             Employer:
                             <input
                                 type="text"
-                                className="Verification-input signature"
+                               
                                 name="employer"
                                 value={formData.employer}
                                 onChange={handleChange}
