@@ -88,30 +88,30 @@
 
 import React, { useState, useEffect } from 'react';
 import './Patients.css'; 
-import Nurse1 from '../assets/nurse1.jpg';
-import Nurse2 from '../assets/nurse2.jpg'; 
-import Nurse3 from '../assets/nurse3.jpg';
-import Nurse4 from '../assets/nurse4.jpg';
+import Nurse1 from '../assets/nurse1.jpeg';
+import Nurse2 from '../assets/nurse2.jpeg'; 
+import Nurse3 from '../assets/nurse3.jpeg';
+import Nurse4 from '../assets/nurse4.jpeg';
 
 const testimonials = [
   {
     image: Nurse2,
-    name: 'Nurse Sobia',
+    name: 'Nurse Jhonny',
     quote: 'J&D has been very instrumental in achieving my goals as a US RN.',
   },
   {
     image: Nurse1,
-    name: 'Nurse Dar',
+    name: 'Nurse Nabeer',
     quote: 'J&D has been very instrumental in achieving my goals as a US RN.',
   },
   {
     image: Nurse3,
-    name: 'Nurse Ayesha',
+    name: 'Nurse Britney',
     quote: 'I am grateful for the guidance and support from J&D throughout my journey.',
   },
   {
     image: Nurse4,
-    name: 'Nurse Farah',
+    name: 'Nurse Sam',
     quote: 'The experience with J&D was transformative and enriching.',
   }
 ];
