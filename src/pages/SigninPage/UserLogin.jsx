@@ -60,6 +60,7 @@ const Login = () => {
       // const response = await fetch('/api/user-login', {
       const response = await fetch('https://janddbackend.xyz/user-login', {
         method: 'POST',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
