@@ -656,6 +656,7 @@ const Application2 = () => {
           // Handle success
           if (response.status === 200) {
             alert('Form submitted successfully!');
+            navigate(`/authorization/${userId}`);
           } else {
             // Access the response message correctly
             alert(response.data?.message || 'Unexpected response from the server.');
@@ -1332,7 +1333,7 @@ const Application2 = () => {
                     // disabled={!isBothTermsChecked} // Disabled unless both checkboxes are checked
 
                   >
-                    Save
+                    Next
                   </button>
                 </div>
                     </>
@@ -1342,9 +1343,9 @@ const Application2 = () => {
 
 
         <div className="p-6 text-center">
-                <h2 className="text-2xl font-semibold mb-4">Continued!</h2>
+                {/* <h2 className="text-2xl font-semibold mb-4">Continued!</h2> */}
                 <p className="mb-4">
-                Please follow the link below to complete the authorization process:
+                {/* Please follow the link below to complete the authorization process: */}
                 </p>
                 {/* <a
                     href="employee"
@@ -1362,12 +1363,12 @@ const Application2 = () => {
                         Back
                     </button> */}
 
-                    <button
+                    {/* <button
                         onClick={handleNext}
                         className="bg-blue-500 text-white px-4 py-2 rounded"
                     >
                         Next
-                    </button>
+                    </button> */}
                 </div>
             </div>
             <Link to="/user-login" className="login-link float-left">

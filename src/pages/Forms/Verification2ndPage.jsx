@@ -102,6 +102,7 @@ const Verification2ndPage = () => {
           // Handle success
           if (response.status === 200) {
             alert('Form submitted successfully!');
+            navigate(`/job/${userId}`);
           } else {
             // Access the response message correctly
             alert(response.data?.message || 'Unexpected response from the server.');
@@ -472,18 +473,18 @@ const Verification2ndPage = () => {
 
                     {/* Submit Button */}
                     <div className="mt-6">
-                        <button
+                        {/* <button
                             type="button"
                             onClick={handleBackVerification}
                             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                         >
-                            Back
-                        </button>
+                            Go to 1st Verification Form
+                        </button> */}
                         <button
                             type="submit"
                             className="ml-8 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                         >
-                            Save
+                            Next
                         </button>
                     </div>
                 </form>
@@ -514,12 +515,12 @@ const Verification2ndPage = () => {
                         Back
                     </button>
 
-                    <button
+                    {/* <button
                         onClick={handleNext}
                         className="bg-blue-500 text-white px-4 py-2 rounded"
                     >
                         Next
-                    </button>
+                    </button> */}
                 </div>
             </div>
             <div>

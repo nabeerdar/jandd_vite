@@ -76,6 +76,7 @@ const Employee = () => {
           // Handle success
           if (response.status === 200) {
             alert('Form submitted successfully!');
+            navigate(`/hipaa/${userId}`);
           } else {
             // Access the response message correctly
             alert(response.data?.message || 'Unexpected response from the server.');
@@ -304,7 +305,7 @@ const Employee = () => {
                     type="submit"
                     className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                 >
-                    Save
+                    Next
                 </button>
             </div>
           </form>
@@ -319,9 +320,9 @@ const Employee = () => {
             <button onClick={handleBack} className="bg-gray-500 text-white px-4 py-2 rounded mr-4">
               Back
             </button>
-            <button onClick={handleNext} className="bg-blue-500 text-white px-4 py-2 rounded">
+            {/* <button onClick={handleNext} className="bg-blue-500 text-white px-4 py-2 rounded">
               Next
-            </button>
+            </button> */}
           </div>
         </div>
         <div>

@@ -75,6 +75,7 @@ const Job = () => {
           // Handle success
           if (response.status === 200) {
             alert('Form submitted successfully!');
+            navigate(`/nurse/${userId}`);
           } else {
             // Access the response message correctly
             alert(response.data?.message || 'Unexpected response from the server.');
@@ -185,7 +186,7 @@ const Job = () => {
                     <div className="Job-agreement">
                         <div className="job-form-row">
                             <label className="job-label">
-                                Employee:
+                                Employee: (Type N/A if its not applicable to you)
                                 <input
                                     type="text"
                                     className="job-input"
@@ -210,7 +211,7 @@ const Job = () => {
 
                         <div className="job-form-row">
                             <label className="job-label">
-                                Employee Signature:
+                                Employee Signature: (Type N / A if its not applicable to you)
                                 <input
                                     required
                                     type="text"
@@ -236,9 +237,9 @@ const Job = () => {
 
                         <div className="job-form-row">
                             <label className="job-label">
-                                Date:
+                                Date: (Type N / A if its not applicable to you)
                                 <input
-                                    type="date"
+                                    type="text"
                                     className="job-input"
                                     name="date1"
                                     value={formData.date1}
@@ -266,7 +267,7 @@ const Job = () => {
                             type="submit"
                             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                         >
-                            Save
+                            Next
                         </button>
                     </div>
                 </form>
@@ -292,12 +293,12 @@ const Job = () => {
                         Back
                     </button>
 
-                    <button
+                    {/* <button
                         onClick={handleNext}
                         className="bg-blue-500 text-white px-4 py-2 rounded"
                     >
-                        Next
-                    </button>
+                        Or Apply to Licensed Practical Nurse
+                    </button> */}
                 </div>
             </div>
             <div>

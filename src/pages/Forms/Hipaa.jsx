@@ -76,6 +76,7 @@ const Hipaa = () => {
           // Handle success
           if (response.status === 200) {
             alert('Form submitted successfully!');
+            navigate(`/verification/${userId}`);
           } else {
             // Access the response message correctly
             alert(response.data?.message || 'Unexpected response from the server.');
@@ -247,7 +248,7 @@ const Hipaa = () => {
                         type="submit"
                         className="bg-blue-500 text-white px-4 py-2 rounded"
                     >
-                        Submit
+                        Next
                     </button>
             </div>
             <div className="p-6 text-center">
@@ -263,13 +264,13 @@ const Hipaa = () => {
                         Back
                     </button>
 
-                    <button
+                    {/* <button
                         type="button"
                         onClick={handleNext}
                         className="bg-blue-500 text-white px-4 py-2 rounded"
                     >
                         Next
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </form>

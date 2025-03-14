@@ -101,6 +101,7 @@ const Verification = () => {
           // Handle success
           if (response.status === 200) {
             alert('Form submitted successfully!');
+            
           } else {
             // Access the response message correctly
             alert(response.data?.message || 'Unexpected response from the server.');
@@ -473,16 +474,19 @@ const Verification = () => {
                         <button
                             type="submit"
                             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                            onClick={handleNextVerificationPage}
                         >
-                            Save
+                            {/* Save */}
+                            Next Verification Page
+                            
                         </button>
-                        <button
+                        {/* <button
                             type="button"
                             onClick={handleNextVerificationPage}
                             className="ml-8 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                         >
                             Next Verification Page
-                        </button>
+                        </button> */}
                     </div>
                 </form>
                 
@@ -512,12 +516,12 @@ const Verification = () => {
                         Back
                     </button>
 
-                    <button
+                    {/* <button
                         onClick={handleNext}
                         className="bg-blue-500 text-white px-4 py-2 rounded"
                     >
                         Next
-                    </button>
+                    </button> */}
                 </div>
             </div>
             <div>
