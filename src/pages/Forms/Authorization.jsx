@@ -428,7 +428,7 @@ const Authorization = () => {
             <div className="p-6 text-center">
                 <h2 className="text-2xl font-semibold mb-4">Continued!</h2>
                 <p className="mb-4">
-                Please follow the link below to complete the EMPLOYEE AUTOMOBILE RELEASE OF LIABILITY and TRANSPORTATION POLICY process:
+                Please follow link below to complete the EMPLOYEE AUTOMOBILE RELEASE OF LIABILITY and TRANSPORTATION POLICY process:
                 </p>
                 {/* <a
                     href="employee"
