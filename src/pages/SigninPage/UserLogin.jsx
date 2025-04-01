@@ -61,6 +61,7 @@ const Login = () => {
       const response = await fetch('https://janddbackend.xyz/user-login', {
         method: 'POST',
         mode: 'cors',
+        credentials: 'include', // 🔥 This is required for Safari!
         headers: {
           'Content-Type': 'application/json',
         },
